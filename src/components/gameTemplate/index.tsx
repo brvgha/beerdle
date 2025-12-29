@@ -182,7 +182,7 @@ const GameTemplate: React.FC = () => {
                             </Grid>
                         )))}
                 </Grid>
-                {guesses < 6 && !isWin ? (
+                {guesses <= 6 && !isWin ? (
                     <Button
                         variant="contained"
                         onClick={handleSubmit}
