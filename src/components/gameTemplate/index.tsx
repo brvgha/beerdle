@@ -39,13 +39,16 @@ const styles = {
         flexDirection: "column" as const,
     },
     logo: {
-        height: "20em",
-        padding: "1.5em",
+        padding: "1em",
         display: "block",
         margin: "0 auto",
         willChange: "filter",
         transition: "filter 300ms",
         backgroundColor: "#ffffffff",
+        width: "20%",
+        height: "20%",
+        borderRadius: "20px",
+
     },
     button: {
         marginTop: "1rem",
@@ -78,17 +81,22 @@ const GameTemplate: React.FC = () => {
         if (selectedBeer && addToGuessedBeers && updateOptions) {
             const currentGuess = selectedBeer;
             addToGuessedBeers(selectedBeer);
-            incrementGuesses(guesses);
             setSelectedBeer(null);
             updateOptions();
 
             // Check win condition
             if (currentGuess.name === actualBeer.name) {
                 setIsWin(true);
-                setShowPopUp(true);
+                setTimeout(() => {
+                    setShowPopUp(true);
+                }, 1500);
             } else if (guesses >= 6) {
                 setIsWin(false);
-                setShowPopUp(true);
+                setTimeout(() => {
+                    setShowPopUp(true);
+                }, 1500);
+            } else {
+                incrementGuesses(guesses);
             }
         } else {
             alert("Please select a beer");
@@ -106,6 +114,7 @@ const GameTemplate: React.FC = () => {
             <Grid size={12} component="div" sx={styles.gameContainer}>
                 <Autocomplete
                     options={options}
+                    disabled={guesses > 6}
                     getOptionLabel={(option) => option.name}
                     onChange={(_event, newValue) => {
                         setSelectedBeer(newValue);
@@ -192,7 +201,7 @@ const GameTemplate: React.FC = () => {
                         Submit ({guesses}/6)
                     </Button>
                 ) : (
-                    <div style={{ textAlign: 'center', marginTop: '1rem', color: isWin ? 'green' : 'red', fontWeight: 'bold' }}>
+                    <div style={{ textAlign: 'center', marginTop: '1rem', color: isWin ? '#00ad09ff' : '#d80000ff', fontWeight: 'bold' }}>
                         {isWin ? "Congratulations!" : "Game Over"} ({guesses}/6)
                     </div>
                 )}
@@ -200,6 +209,12 @@ const GameTemplate: React.FC = () => {
             <PopUpTemplate
                 open={showPopUp}
                 isCorrect={isWin}
+                beerName={actualBeer.name}
+                beerType={capitalizeFirstLetter(actualBeer.type)}
+                beerOrigin={actualBeer.origin}
+                beerRegion={actualBeer.region}
+                beerAlcoholContent={actualBeer.alcohol_content}
+                beerDescription={actualBeer.description}
                 onClose={() => setShowPopUp(false)}
             />
         </Grid>
