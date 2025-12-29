@@ -1,7 +1,6 @@
 import React from "react";
 // import { BeerdleProps } from "../types/interfaces";
 // import { useQuery } from "@tanstack/react-query";
-import sampleData from "../../data/sample.json";
 // import { checkSessionStorage } from "../utils";
 // import { useNavigate } from "react-router-dom";
 // import Spinner from "../components/spinner";
@@ -15,10 +14,6 @@ const HomePage: React.FC = () => {
       navigate("/");
     }
   }, [navigate]); */
-
-  const todaysBeer = JSON.parse(JSON.stringify(sampleData));
-
-  console.log(todaysBeer);
 
   /* const { data, error, isLoading, isError } = useQuery<[], Error>({
     queryKey: ["beerdle-data"],
