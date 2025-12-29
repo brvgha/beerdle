@@ -1,22 +1,22 @@
 import React, { useState, useCallback } from "react";
 import type { BeerdleProps } from "../types/interfaces";
-// import { BaseMovieProps, Review } from "../types/interfaces";
+import data from "../../data/beers.json";
 
 interface BeerdleContextInterface {
-    // favourites: number[];
-    // mustwatch: number[];
     guesses: number;
     guessedBeers?: Map<string, BeerdleProps[]>;
     incrementGuesses: (guess: number) => void;
     addToGuessedBeers?: (beer: BeerdleProps) => void;
+    updateOptions: () => void;
+    options: BeerdleProps[];
 }
 const initialContextState: BeerdleContextInterface = {
-    // favourites: [],
-    // mustwatch: [],
     guesses: 0,
     guessedBeers: new Map<string, BeerdleProps[]>(),
     incrementGuesses: (guess: number) => { guess },
     addToGuessedBeers: (beer: BeerdleProps) => { return beer; },
+    updateOptions: () => { return data.beers },
+    options: [],
 };
 
 export const BeerdleContext = React.createContext<BeerdleContextInterface>(initialContextState);
@@ -24,23 +24,7 @@ export const BeerdleContext = React.createContext<BeerdleContextInterface>(initi
 const BeerdleContextProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     const [guesses, setGuesses] = useState<number>(1);
     const [guessedBeers, setGuessedBeers] = useState<Map<string, BeerdleProps[]>>(new Map<string, BeerdleProps[]>());
-
-    /*const addToFavourites = useCallback((movie: BaseMovieProps) => {
-        setFavourites((prevFavourites) => {
-            if (!prevFavourites.includes(movie.id)) {
-                return [...prevFavourites, movie.id];
-            }
-            return prevFavourites;
-        });
-    }, []);
-
-    const removeFromFavourites = useCallback((movie: BaseMovieProps) => {
-        setFavourites((prevFavourites) => prevFavourites.filter((mId) => mId !== movie.id));
-    }, []);
-
-    const addReview = (movie: BaseMovieProps, review: Review) => {
-        setMyReviews({ ...myReviews, [movie.id]: review })
-    };*/
+    const [options, setOptions] = useState<BeerdleProps[]>(data.beers);
 
     const incrementGuesses = (guess: number) => {
         setGuesses(guess + 1);
@@ -54,6 +38,12 @@ const BeerdleContextProvider: React.FC<React.PropsWithChildren> = ({ children })
         });
     };
 
+    const updateOptions = () => {
+        const allGuessed = Array.from(guessedBeers.values()).flat();
+        const guessedNames = new Set(allGuessed.map(b => b.name));
+        setOptions(data.beers.filter((option) => !guessedNames.has(option.name)));
+    }
+
     return (
         <BeerdleContext.Provider
             value={{
@@ -61,6 +51,8 @@ const BeerdleContextProvider: React.FC<React.PropsWithChildren> = ({ children })
                 guessedBeers,
                 incrementGuesses,
                 addToGuessedBeers,
+                updateOptions,
+                options
             }}
         >
             {children}

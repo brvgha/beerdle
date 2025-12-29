@@ -1,21 +1,48 @@
 import React, { useState, type MouseEvent } from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+  Menu,
+  MenuItem,
+  useMediaQuery,
+  useTheme,
+  Box,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 const styles = {
-  title: {
-    flexGrow: 1,
+  logo: {
+    width: 75,
+    height: 40,
   },
+  title: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    paddingLeft: '50px'
+  },
+  subtitle: {
+    display: 'flex',
+    alignItems: 'start',
+    justifyContent: 'start',
+    flexDirection: 'column',
+  },
+  options: {
+    gap: 30,
+  },
+  appBar: {
+    backgroundColor: "#212121",
+    elevation: 10,
+    position: 'fixed',
+    zIndex: 1000,
+    width: '100%',
+  }
 };
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
@@ -45,14 +72,15 @@ const SiteHeader: React.FC = () => {
 
   return (
     <>
-      <AppBar position="fixed" elevation={0} color="primary">
+      <AppBar position="fixed" sx={styles.appBar}>
         <Toolbar>
+          <img width={styles.logo.width} height={styles.logo.height} src="/logo.png" alt="Beerdle Logo" />
           <Typography variant="h4" sx={styles.title}>
-            Beerdle
           </Typography>
-          <Typography variant="h6" sx={styles.title}>
+          <Typography variant="h6" sx={styles.subtitle} position="relative">
             The beer guessing game!
           </Typography>
+          <Box sx={{ flexGrow: 1 }} />
           {isMobile ? (
             <>
               <IconButton
@@ -94,6 +122,7 @@ const SiteHeader: React.FC = () => {
             <>
               {menuOptions.map((opt) => (
                 <Button
+                  sx={styles.options}
                   key={opt.label}
                   color="inherit"
                   onClick={() => handleMenuSelect(opt.path)}

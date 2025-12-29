@@ -60,3 +60,7 @@ export const checkSameAlcoholContent = (actual: string, guessed: string) => {
 export const checkSameName = (actual: string, guessed: string) => {
     return actual === guessed;
 }
+
+export const checkSameRegions = (actual: string, guessed: string) => {
+    return actual === guessed;
+}
