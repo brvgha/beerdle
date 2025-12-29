@@ -16,7 +16,7 @@ const commonAttributeBoxStyles = {
     padding: "0.75rem",
     textAlign: "center" as const,
     backgroundColor: "#f0f0f0",
-    minHeight: "95px",
+    minHeight: "90px",
     display: "flex",
     flexDirection: "column" as const,
     alignItems: "center",
@@ -171,12 +171,12 @@ const GameTemplate: React.FC = () => {
                                 {checkSameName(actualBeer.name, beer.name) ? <Grid size={3}>
                                     <Paper sx={styles.exactAttributeBox} elevation={2}>
                                         <h3>{getInfoButtonComponent('name', entryIndex)}</h3>
-                                        {beer.name.length > 8 ? <p style={{ fontSize: "0.6rem" }}>{beer.name}</p> : <p>{beer.name}</p>}
+                                        {beer.name}
                                     </Paper>
                                 </Grid> : <Grid size={3}>
                                     <Paper sx={styles.attributeBox} elevation={2}>
                                         <h3>{getInfoButtonComponent('name', entryIndex)}</h3>
-                                        {beer.name.length >= 10 ? <p style={{ fontSize: "0.6rem" }}>{beer.name}</p> : <p>{beer.name}</p>}
+                                        {beer.name}
                                     </Paper>
                                 </Grid>}
                                 {checkSameType(actualBeer.type, beer.type) === true ? <Grid size={3}>
