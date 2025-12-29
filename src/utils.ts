@@ -27,18 +27,27 @@ export const forWikiSearch = (word: string) => {
 export const delay = (ms: number): Promise<void> => {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
-/* found a better way to make youtube video
-export const createYoutubeVideoLink = (id: string) => {
-    return `https://www.youtube.com/watch?v=${id}`
-}
-*/
 
 export const capitalizeFirstLetter = (word: string) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
 export const checkSameType = (actual: string, guessed: string) => {
-    return actual === guessed;
+    const actualArr = actual.includes(" ") ? actual.split(" ") : [actual];
+    const guessedArr = guessed.includes(" ") ? guessed.split(" ") : [guessed];
+    let close = false;
+    for (let i = 0; i < actualArr.length; i++) {
+        if (guessedArr.includes(actualArr[i])) {
+            close = true;
+        }
+    }
+    if (actual === guessed) {
+        return true;
+    } else if (close) {
+        return "close";
+    } else {
+        return false;
+    }
 }
 
 export const checkSameOrigin = (actual: string, guessed: string) => {

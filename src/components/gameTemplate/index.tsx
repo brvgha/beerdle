@@ -7,12 +7,13 @@ import actual from '../../../data/sample.json';
 import { BeerdleContext } from "../../context/beerdleContext";
 import type { BeerdleProps } from "../../types/interfaces";
 import { capitalizeFirstLetter, checkSameAlcoholContent, checkSameName, checkSameOrigin, checkSameType, checkSameRegions } from "../../utils";
+import SiteFooter from "../siteFooter";
 
 const commonAttributeBoxStyles = {
     padding: "0.75rem",
     textAlign: "center" as const,
     backgroundColor: "#f0f0f0",
-    minHeight: "80px",
+    minHeight: "90px",
     display: "flex",
     flexDirection: "column" as const,
     alignItems: "center",
@@ -145,8 +146,13 @@ const GameTemplate: React.FC = () => {
                                         {beer.name}
                                     </Paper>
                                 </Grid>}
-                                {checkSameType(beer.type, actualBeer.type) ? <Grid size={3}>
+                                {checkSameType(actualBeer.type, beer.type) === true ? <Grid size={3}>
                                     <Paper sx={{ ...styles.exactAttributeBox, animationDelay: '0.2s' }} elevation={2}>
+                                        <h3>Type:</h3>
+                                        {capitalizeFirstLetter(beer.type)}
+                                    </Paper>
+                                </Grid> : checkSameType(actualBeer.type, beer.type) === 'close' ? <Grid size={3}>
+                                    <Paper sx={{ ...styles.closeAttributeBox, animationDelay: '0.2s' }} elevation={2}>
                                         <h3>Type:</h3>
                                         {capitalizeFirstLetter(beer.type)}
                                     </Paper>
@@ -156,12 +162,12 @@ const GameTemplate: React.FC = () => {
                                         {capitalizeFirstLetter(beer.type)}
                                     </Paper>
                                 </Grid>}
-                                {checkSameAlcoholContent(beer.alcohol_content, actualBeer.alcohol_content) ? <Grid size={3}>
+                                {checkSameAlcoholContent(actualBeer.alcohol_content, beer.alcohol_content) === true ? <Grid size={3}>
                                     <Paper sx={{ ...styles.exactAttributeBox, animationDelay: '0.4s' }} elevation={2}>
                                         <h3>Alcohol Content:</h3>
                                         {beer.alcohol_content}
                                     </Paper>
-                                </Grid> : checkSameAlcoholContent(beer.alcohol_content, actualBeer.alcohol_content) === "close" ? <Grid size={3}>
+                                </Grid> : checkSameAlcoholContent(actualBeer.alcohol_content, beer.alcohol_content) === "close" ? <Grid size={3}>
                                     <Paper sx={{ ...styles.closeAttributeBox, animationDelay: '0.4s' }} elevation={2}>
                                         <h3>Alcohol Content:</h3>
                                         {beer.alcohol_content}
@@ -172,12 +178,12 @@ const GameTemplate: React.FC = () => {
                                         {beer.alcohol_content}
                                     </Paper>
                                 </Grid>}
-                                {checkSameOrigin(beer.origin, actualBeer.origin) ? <Grid size={3}>
+                                {checkSameOrigin(actualBeer.origin, beer.origin) === true ? <Grid size={3}>
                                     <Paper sx={{ ...styles.exactAttributeBox, animationDelay: '0.6s' }} elevation={2}>
                                         <h3>Country:</h3>
                                         {beer.origin}
                                     </Paper>
-                                </Grid> : checkSameRegions(beer.region, actualBeer.region) ? <Grid size={3}>
+                                </Grid> : checkSameRegions(actualBeer.region, beer.region) === true ? <Grid size={3}>
                                     <Paper sx={{ ...styles.closeAttributeBox, animationDelay: '0.6s' }} elevation={2}>
                                         <h3>Country:</h3>
                                         {beer.origin}
@@ -217,7 +223,11 @@ const GameTemplate: React.FC = () => {
                 beerDescription={actualBeer.description}
                 onClose={() => setShowPopUp(false)}
             />
+            <Grid size={12} component="div">
+                <SiteFooter />
+            </Grid>
         </Grid>
+
     );
 }
 
