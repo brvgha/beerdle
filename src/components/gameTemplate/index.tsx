@@ -2,6 +2,7 @@ import Grid from "@mui/material/Grid";
 import SiteHeader from "../siteHeader";
 import { TextField, Autocomplete, Button, Paper } from "@mui/material";
 import React, { useContext, useState } from "react";
+import PopUpTemplate from "../popUpTemplate";
 import actual from '../../../data/sample.json';
 import { BeerdleContext } from "../../context/beerdleContext";
 import type { BeerdleProps } from "../../types/interfaces";
@@ -68,15 +69,27 @@ const styles = {
 const GameTemplate: React.FC = () => {
     const { guesses, incrementGuesses, addToGuessedBeers, guessedBeers, updateOptions, options } = useContext(BeerdleContext);
     const [selectedBeer, setSelectedBeer] = useState<BeerdleProps | null>(null);
+    const [showPopUp, setShowPopUp] = useState(false);
+    const [isWin, setIsWin] = useState(false);
 
     const actualBeer = JSON.parse(JSON.stringify(actual)).beers[0];
 
     const handleSubmit = () => {
         if (selectedBeer && addToGuessedBeers && updateOptions) {
+            const currentGuess = selectedBeer;
             addToGuessedBeers(selectedBeer);
             incrementGuesses(guesses);
             setSelectedBeer(null);
             updateOptions();
+
+            // Check win condition
+            if (currentGuess.name === actualBeer.name) {
+                setIsWin(true);
+                setShowPopUp(true);
+            } else if (guesses >= 6) {
+                setIsWin(false);
+                setShowPopUp(true);
+            }
         } else {
             alert("Please select a beer");
         }
@@ -169,7 +182,7 @@ const GameTemplate: React.FC = () => {
                             </Grid>
                         )))}
                 </Grid>
-                {guesses < 6 ? (
+                {guesses < 6 && !isWin ? (
                     <Button
                         variant="contained"
                         onClick={handleSubmit}
@@ -179,12 +192,16 @@ const GameTemplate: React.FC = () => {
                         Submit ({guesses}/6)
                     </Button>
                 ) : (
-                    <div style={{ textAlign: 'center', marginTop: '1rem', color: 'red', fontWeight: 'bold' }}>
-                        Game Over ({guesses}/6)
+                    <div style={{ textAlign: 'center', marginTop: '1rem', color: isWin ? 'green' : 'red', fontWeight: 'bold' }}>
+                        {isWin ? "Congratulations!" : "Game Over"} ({guesses}/6)
                     </div>
                 )}
             </Grid>
-
+            <PopUpTemplate
+                open={showPopUp}
+                isCorrect={isWin}
+                onClose={() => setShowPopUp(false)}
+            />
         </Grid>
     );
 }

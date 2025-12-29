@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import type { BeerdleProps } from "../types/interfaces";
 import data from "../../data/beers.json";
 
