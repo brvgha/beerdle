@@ -9,8 +9,6 @@ import type { BeerdleProps } from "../../types/interfaces";
 import { capitalizeFirstLetter, checkSameAlcoholContent, checkSameName, checkSameOrigin, checkSameType, checkSameRegions, shorten } from "../../utils";
 import SiteFooter from "../siteFooter";
 import InfoPopUpTemplate from "../infoPopUpTemplate";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
 const commonAttributeBoxStyles = {
     padding: "0.75rem",
@@ -23,7 +21,7 @@ const commonAttributeBoxStyles = {
     justifyContent: "center",
     fontSize: "0.8rem",
     gap: "15px",
-    "& h3": {
+    "& h6": {
         margin: 0,
         minHeight: "2.4em",
         display: "flex",
@@ -84,11 +82,10 @@ const GameTemplate: React.FC = () => {
     const actualBeer = JSON.parse(JSON.stringify(actual)).beers[0];
 
     const handleSubmit = () => {
-        if (selectedBeer && addToGuessedBeers && updateOptions) {
+        if (selectedBeer && addToGuessedBeers) {
             const currentGuess = selectedBeer;
             addToGuessedBeers(selectedBeer);
             setSelectedBeer(null);
-            updateOptions();
 
             // Check win condition
             if (currentGuess.name === actualBeer.name) {
@@ -170,60 +167,60 @@ const GameTemplate: React.FC = () => {
                             <Grid container key={`${key}-${i}`} spacing={1} sx={{ mb: 1 }}>
                                 {checkSameName(actualBeer.name, beer.name) ? <Grid size={3}>
                                     <Paper sx={styles.exactAttributeBox} elevation={2}>
-                                        <h3>{getInfoButtonComponent('name', entryIndex)}</h3>
+                                        {getInfoButtonComponent('name', entryIndex)}
                                         {beer.name}
                                     </Paper>
                                 </Grid> : <Grid size={3}>
                                     <Paper sx={styles.attributeBox} elevation={2}>
-                                        <h3>{getInfoButtonComponent('name', entryIndex)}</h3>
+                                        {getInfoButtonComponent('name', entryIndex)}
                                         {beer.name}
                                     </Paper>
                                 </Grid>}
                                 {checkSameType(actualBeer.type, beer.type) === true ? <Grid size={3}>
                                     <Paper sx={{ ...styles.exactAttributeBox, animationDelay: '0.2s' }} elevation={2}>
-                                        <h3>{getInfoButtonComponent('type', entryIndex)}</h3>
+                                        {getInfoButtonComponent('type', entryIndex)}
                                         {capitalizeFirstLetter(beer.type)}
                                     </Paper>
                                 </Grid> : checkSameType(actualBeer.type, beer.type) === 'close' ? <Grid size={3}>
                                     <Paper sx={{ ...styles.closeAttributeBox, animationDelay: '0.2s' }} elevation={2}>
-                                        <h3>{getInfoButtonComponent('type', entryIndex)}</h3>
+                                        {getInfoButtonComponent('type', entryIndex)}
                                         {capitalizeFirstLetter(beer.type)}
                                     </Paper>
                                 </Grid> : <Grid size={3}>
                                     <Paper sx={{ ...styles.attributeBox, animationDelay: '0.2s' }} elevation={2}>
-                                        <h3>{getInfoButtonComponent('type', entryIndex)}</h3>
+                                        {getInfoButtonComponent('type', entryIndex)}
                                         {capitalizeFirstLetter(beer.type)}
                                     </Paper>
                                 </Grid>}
                                 {checkSameAlcoholContent(actualBeer.alcohol_content, beer.alcohol_content) === true ? <Grid size={3}>
                                     <Paper sx={{ ...styles.exactAttributeBox, animationDelay: '0.4s' }} elevation={2}>
-                                        <h3>{getInfoButtonComponent('alcohol_content', entryIndex)}</h3>
+                                        {getInfoButtonComponent('alcohol_content', entryIndex)}
                                         {beer.alcohol_content}
                                     </Paper>
                                 </Grid> : checkSameAlcoholContent(actualBeer.alcohol_content, beer.alcohol_content) === "close" ? <Grid size={3}>
                                     <Paper sx={{ ...styles.closeAttributeBox, animationDelay: '0.4s' }} elevation={2}>
-                                        <h3>{getInfoButtonComponent('alcohol_content', entryIndex)}</h3>
+                                        {getInfoButtonComponent('alcohol_content', entryIndex)}
                                         {beer.alcohol_content}
                                     </Paper>
                                 </Grid> : <Grid size={3}>
                                     <Paper sx={{ ...styles.attributeBox, animationDelay: '0.4s' }} elevation={2}>
-                                        <h3>{getInfoButtonComponent('alcohol_content', entryIndex)}</h3>
+                                        {getInfoButtonComponent('alcohol_content', entryIndex)}
                                         {beer.alcohol_content}
                                     </Paper>
                                 </Grid>}
                                 {checkSameOrigin(actualBeer.origin, beer.origin) === true ? <Grid size={3}>
                                     <Paper sx={{ ...styles.exactAttributeBox, animationDelay: '0.6s' }} elevation={2}>
-                                        <h3>{getInfoButtonComponent('origin', entryIndex)}</h3>
+                                        {getInfoButtonComponent('origin', entryIndex)}
                                         {beer.origin}
                                     </Paper>
                                 </Grid> : checkSameRegions(actualBeer.region, beer.region) === true ? <Grid size={3}>
                                     <Paper sx={{ ...styles.closeAttributeBox, animationDelay: '0.6s' }} elevation={2}>
-                                        <h3>{getInfoButtonComponent('origin', entryIndex)}</h3>
+                                        {getInfoButtonComponent('origin', entryIndex)}
                                         {beer.origin}
                                     </Paper>
                                 </Grid> : <Grid size={3}>
                                     <Paper sx={{ ...styles.attributeBox, animationDelay: '0.6s' }} elevation={2}>
-                                        <h3>{getInfoButtonComponent('origin', entryIndex)}</h3>
+                                        {getInfoButtonComponent('origin', entryIndex)}
                                         {beer.origin}
                                     </Paper>
                                 </Grid>}
