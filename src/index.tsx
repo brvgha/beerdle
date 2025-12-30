@@ -8,6 +8,7 @@ import BeerdleContextProvider from './context/beerdleContext';
 import AboutPage from './pages/aboutPage';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import HomePage from './pages/homePage';
+import RecommendationPage from './pages/recommendationPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,6 +29,7 @@ const App = () => {
         <BeerdleContextProvider>
           <Routes>
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/recommendation" element={<RecommendationPage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

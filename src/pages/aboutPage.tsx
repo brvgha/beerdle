@@ -2,25 +2,27 @@ import { Button, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import SiteHeader from "../components/siteHeader";
 import '../styles/aboutPage.css'
+import LogoTemplate from "../components/logoTemplate";
+import SiteFooter from "../components/siteFooter";
+import RecommendationBubble from "../components/recommendationBubble";
 
 
 
 const AboutPage: React.FC = () => {
-  if (sessionStorage.length > 0) {
+  /* if (sessionStorage.length > 0) {
     sessionStorage.clear();
-  }
-  sessionStorage.setItem("loggedin", "false");
+  } */
+  //sessionStorage.setItem("loggedin", "false");
 
   return (
-    <Grid container className="about-root">
-      <Grid size={12}>
-        <Grid container className="about-header-container">
-          <SiteHeader />
-        </Grid>
-        <Grid container className="about-logo-container">
-          <img src="/logo.png" className="about-logo-image" alt="logo" />
-        </Grid>
-        <Grid container sx={{ mt: 2, gap: 0.5 }} direction="column">
+    <Grid container className="about-root" direction="column" sx={{ my: 1 }}>
+      <RecommendationBubble />
+      <Grid container className="about-header-container">
+        <SiteHeader />
+      </Grid>
+      <LogoTemplate />
+      <Grid >
+        <Grid container sx={{ my: 2, gap: 0.5 }} direction="column">
           <Typography>Welcome to Beerdle.</Typography>
           <Typography>Guess the beer in 6 tries.</Typography>
           <Typography>New challenge every day!</Typography>
@@ -42,7 +44,7 @@ const AboutPage: React.FC = () => {
             to="/login"
             onMouseOver={
               () => {
-                <Typography>Login to store your progress.</Typography>
+                return (<Typography>Login to store your progress.</Typography>)
               }
             }
           >
@@ -68,6 +70,9 @@ const AboutPage: React.FC = () => {
             <img src="/bmc-button.png" alt="coffee" style={{ width: "150px", height: "50px" }} />
           </Button>
         </Grid>
+      </Grid>
+      <Grid>
+        <SiteFooter />
       </Grid>
     </Grid>
   );

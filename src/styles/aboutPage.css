@@ -1,15 +1,13 @@
 .about-root {
-    background-color: #bfbfbf;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
 }
 
 .about-logo-container {
-    padding: 1em;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto auto auto;
     will-change: filter;
     transition: filter 300ms;
     background-color: #ffffff;
@@ -25,15 +23,13 @@
 .about-button-container {
     margin-top: 20px;
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    gap: 5px;
     flex-direction: row;
     width: 100%;
-    align-items: center;
+    justify-content: space-between;
 }
 
 .about-header-container {
-    margin-top: -70px;
     display: flex;
     flex-direction: column;
 }
@@ -50,16 +46,19 @@
 .play-button {
     min-width: 100px !important;
     background-color: #00c43b !important;
+    margin: 2rem;
 }
 
 .login-button {
     min-width: 100px !important;
     background-color: #0055c4 !important;
+    margin: 2rem;
 }
 
 .signup-button {
     min-width: 100px !important;
     background-color: #6500c4 !important;
+    margin: 2rem;
 }
 
 .bmc-container {

@@ -10,6 +10,8 @@ import SiteFooter from "../siteFooter";
 import InfoPopUpTemplate from "../infoPopUpTemplate";
 import { useBeerdle } from "../../hooks/useBeerdle";
 import "../../styles/gameTemplate.css";
+import RecommendationBubble from "../recommendationBubble";
+import LogoTemplate from "../logoTemplate";
 
 const GameTemplate: React.FC = () => {
     const { guesses, incrementGuesses, addToGuessedBeers, guessedBeers, options } = useBeerdle();
@@ -79,9 +81,8 @@ const GameTemplate: React.FC = () => {
             <Grid size={12} component="div">
                 <SiteHeader />
             </Grid>
-            <Grid size={12} component="div" sx={{ display: 'flex', justifyContent: 'center' }}>
-                <img src="/logo.png" alt="logo" className="game-logo" />
-            </Grid>
+            <RecommendationBubble />
+            <LogoTemplate />
             <Grid size={12} component="div" className="game-container">
                 <Autocomplete
                     options={options}
