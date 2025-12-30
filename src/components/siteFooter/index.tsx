@@ -1,28 +1,11 @@
 import { Grid } from "@mui/material";
 
 
-const styles = {
-    footer: {
-        backgroundColor: "#212121",
-        color: "#ffffff",
-        padding: "1rem",
-        textAlign: "center",
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        zIndex: 1000,
-        m: 0,
-        boxSizing: 'border-box'
-    }
-}
+import "../../styles/siteFooter.css";
 
 const SiteFooter: React.FC = () => {
     return (
-        <Grid container component="div" direction="column" sx={styles.footer}>
+        <Grid container component="div" direction="column" className="site-footer">
             <Grid size={12} component="div">
                 <p>Beerdle</p>
                 <p>© 2025 Beerdle. All rights reserved.</p>

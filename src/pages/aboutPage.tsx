@@ -1,41 +1,9 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import SiteHeader from "../components/siteHeader";
+import '../styles/aboutPage.css'
 
-const styles = {
-  root: {
-    backgroundColor: "#bfbfbf",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    background: "100vh",
-  },
-  image: {
-    padding: "1em",
-    display: "block",
-    margin: "0 auto",
-    willChange: "filter",
-    transition: "filter 300ms",
-    backgroundColor: "#ffffffff",
-    width: "80%",
-    height: "80%",
-    borderRadius: "20px",
 
-  },
-  buttonContainer: {
-    marginTop: "20px",
-    display: "flex",
-    justifyContent: "center",
-    gap: "30px",
-    flexDirection: "row" as const,
-    width: "100%",
-    alignItems: "center",
-  },
-  headerContainer: {
-    marginTop: "-70px",
-    flexDirection: "column" as const,
-  },
-};
 
 const AboutPage: React.FC = () => {
   if (sessionStorage.length > 0) {
@@ -44,21 +12,21 @@ const AboutPage: React.FC = () => {
   sessionStorage.setItem("loggedin", "false");
 
   return (
-    <Grid container sx={styles.root}>
+    <Grid container className="about-root">
       <Grid size={12}>
-        <div style={styles.headerContainer}>
+        <Grid container className="about-header-container">
           <SiteHeader />
-        </div>
-        <div style={styles.image}>
-          <img src="/logo.png" style={styles.image} alt="logo" />
-        </div>
+        </Grid>
+        <Grid container className="about-logo-container">
+          <img src="/logo.png" className="about-logo-image" alt="logo" />
+        </Grid>
         <Grid container sx={{ mt: 2, gap: 0.5 }} direction="column">
           <Typography>Welcome to Beerdle.</Typography>
           <Typography>Guess the beer in 6 tries.</Typography>
           <Typography>New challenge every day!</Typography>
           <Typography>Thanks for playing 💕</Typography>
         </Grid>
-        <Grid container sx={styles.buttonContainer}>
+        <Grid container className="about-button-container">
           <Button
             variant="contained"
             sx={{ minWidth: "100px", backgroundColor: "#00c43bff", color: "#ffffffff" }}

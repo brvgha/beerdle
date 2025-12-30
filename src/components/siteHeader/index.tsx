@@ -15,35 +15,7 @@ import { styled } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 
-const styles = {
-  logo: {
-    width: 75,
-    height: 40,
-  },
-  title: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    paddingLeft: '50px'
-  },
-  subtitle: {
-    display: 'flex',
-    alignItems: 'start',
-    justifyContent: 'start',
-    flexDirection: 'column',
-  },
-  options: {
-    gap: 30,
-  },
-  appBar: {
-    backgroundColor: "#212121",
-    elevation: 10,
-    position: 'fixed',
-    zIndex: 1000,
-    width: '100%',
-  }
-};
+import "../../styles/siteHeader.css";
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
@@ -72,12 +44,12 @@ const SiteHeader: React.FC = () => {
 
   return (
     <>
-      <AppBar position="fixed" sx={styles.appBar}>
+      <AppBar className="site-header" elevation={10}>
         <Toolbar>
-          <img width={styles.logo.width} height={styles.logo.height} src="/logo.png" alt="Beerdle Logo" />
-          <Typography variant="h4" sx={styles.title}>
+          <img className="header-logo" src="/logo.png" alt="Beerdle Logo" />
+          <Typography variant="h4" className="header-title">
           </Typography>
-          <Typography variant="h6" sx={styles.subtitle} position="relative">
+          <Typography variant="h6" className="header-subtitle">
             The beer guessing game!
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
@@ -122,7 +94,7 @@ const SiteHeader: React.FC = () => {
             <>
               {menuOptions.map((opt) => (
                 <Button
-                  sx={styles.options}
+                  className="nav-button"
                   key={opt.label}
                   color="inherit"
                   onClick={() => handleMenuSelect(opt.path)}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Dialog, DialogTitle, DialogContent, Typography, Button, Box } from "@mui/material";
+import { Dialog, DialogTitle, DialogContent, Typography, Button } from "@mui/material";
 
 interface PopUpProps {
     open: boolean;
@@ -13,60 +13,55 @@ interface PopUpProps {
     beerDescription: string;
 }
 
+import "../../styles/popUpTemplate.css";
+
 const PopUpTemplate: React.FC<PopUpProps> = ({ open, isCorrect, onClose, beerName, beerType, beerOrigin, beerRegion, beerAlcoholContent, beerDescription }) => {
     return (
         <Dialog
             open={open}
             onClose={onClose}
-            slotProps={{
-                paper: {
-                    sx: {
-                        padding: '2rem',
-                        textAlign: 'center',
-                        borderRadius: '15px',
-                        minWidth: '300px'
-                    }
-                }
+            PaperProps={{
+                className: "popup-paper"
             }}
         >
             <DialogTitle>
-                <Typography variant="h4" component="div" sx={{ fontWeight: 'bold', textAlign: 'center' }}>
+                <Typography variant="h4" component="div" className="popup-title">
                     {isCorrect ? "🎉 Congratulations!" : "🍻 Unlucky!"}
                 </Typography>
             </DialogTitle>
             <DialogContent>
-                <Box sx={{ my: 2, textAlign: 'center' }}>
+                <div className="popup-section">
                     <Typography variant="body1">
                         {isCorrect
                             ? "You guessed the beer correctly!"
                             : "Better luck next time."}
                     </Typography>
-                </Box>
-                <Box sx={{ my: 2, textAlign: 'center', gap: 2 }}>
-                    <Typography variant="body1">
+                </div>
+                <div className="popup-section">
+                    <Typography variant="body1" className="popup-detail">
                         <b>Name:</b> {beerName}
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography variant="body1" className="popup-detail">
                         <b>Type:</b> {beerType}
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography variant="body1" className="popup-detail">
                         <b>Origin:</b> {beerOrigin}
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography variant="body1" className="popup-detail">
                         <b>Region:</b> {beerRegion}
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography variant="body1" className="popup-detail">
                         <b>Alcohol Content:</b> {beerAlcoholContent}
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography variant="body1" className="popup-detail">
                         <b>Description:</b> {beerDescription}
                     </Typography>
-                </Box>
+                </div>
                 <Button
                     variant="contained"
                     fullWidth
                     onClick={onClose}
-                    sx={{ mt: 2, backgroundColor: '#212121', '&:hover': { backgroundColor: '#424242' } }}
+                    className="popup-close-button"
                 >
                     Close
                 </Button>

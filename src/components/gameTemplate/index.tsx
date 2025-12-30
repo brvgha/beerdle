@@ -9,67 +9,7 @@ import { capitalizeFirstLetter, checkSameAlcoholContent, checkSameName, checkSam
 import SiteFooter from "../siteFooter";
 import InfoPopUpTemplate from "../infoPopUpTemplate";
 import { useBeerdle } from "../../hooks/useBeerdle";
-
-const commonAttributeBoxStyles = {
-    padding: "0.75rem",
-    textAlign: "center" as const,
-    backgroundColor: "#f0f0f0",
-    minHeight: "90px",
-    display: "flex",
-    flexDirection: "column" as const,
-    alignItems: "center",
-    justifyContent: "center",
-    fontSize: "0.8rem",
-    gap: "15px",
-    "& h6": {
-        margin: 0,
-        minHeight: "2.4em",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    animation: "flipIn 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) backwards",
-};
-
-const styles = {
-    gameContainer: {
-        backgroundColor: "#ffffffff",
-        padding: "2rem",
-        margin: "0 auto",
-        maxWidth: "500px",
-        alignItems: "center",
-        flexDirection: "column" as const,
-    },
-    logo: {
-        padding: "1em",
-        display: "block",
-        margin: "0 auto",
-        willChange: "filter",
-        transition: "filter 300ms",
-        backgroundColor: "#ffffffff",
-        width: "20%",
-        height: "20%",
-        borderRadius: "20px",
-
-    },
-    button: {
-        marginTop: "1rem",
-        width: "100%",
-        backgroundColor: "#212121",
-        color: "#ffffff",
-    },
-    attributeBox: {
-        ...commonAttributeBoxStyles,
-    },
-    closeAttributeBox: {
-        ...commonAttributeBoxStyles,
-        backgroundColor: "#ffa500", // Example: Orange for 'close'
-    },
-    exactAttributeBox: {
-        ...commonAttributeBoxStyles,
-        backgroundColor: "#00ff00", // Example: Green for 'exact'
-    },
-};
+import "../../styles/gameTemplate.css";
 
 const GameTemplate: React.FC = () => {
     const { guesses, incrementGuesses, addToGuessedBeers, guessedBeers, options } = useBeerdle();
@@ -140,9 +80,9 @@ const GameTemplate: React.FC = () => {
                 <SiteHeader />
             </Grid>
             <Grid size={12} component="div" sx={{ display: 'flex', justifyContent: 'center' }}>
-                <img src="/logo.png" alt="logo" style={styles.logo} />
+                <img src="/logo.png" alt="logo" className="game-logo" />
             </Grid>
-            <Grid size={12} component="div" sx={styles.gameContainer}>
+            <Grid size={12} component="div" className="game-container">
                 <Autocomplete
                     options={options}
                     disabled={guesses > 6}
@@ -154,16 +94,7 @@ const GameTemplate: React.FC = () => {
                     value={selectedBeer}
                     renderGroup={(params) => (
                         <li key={params.key}>
-                            <Typography
-                                sx={{
-                                    fontWeight: 'bold',
-                                    padding: '8px 16px',
-                                    backgroundColor: '#f5f5f5',
-                                    textTransform: 'uppercase',
-                                    fontSize: '0.75rem',
-                                    letterSpacing: '0.05em'
-                                }}
-                            >
+                            <Typography className="group-header">
                                 {params.group}
                             </Typography>
                             <ul style={{ padding: 0 }}>{params.children}</ul>
@@ -184,60 +115,60 @@ const GameTemplate: React.FC = () => {
                         beers.map((beer, i) => (
                             <Grid container key={`${key}-${i}`} spacing={1} sx={{ mb: 1 }}>
                                 {checkSameName(actualBeer.name, beer.name) ? <Grid size={3}>
-                                    <Paper sx={styles.exactAttributeBox} elevation={2}>
+                                    <Paper className="attribute-box exact" elevation={2}>
                                         {getInfoButtonComponent('name', entryIndex)}
                                         {beer.name}
                                     </Paper>
                                 </Grid> : <Grid size={3}>
-                                    <Paper sx={styles.attributeBox} elevation={2}>
+                                    <Paper className="attribute-box" elevation={2}>
                                         {getInfoButtonComponent('name', entryIndex)}
                                         {beer.name}
                                     </Paper>
                                 </Grid>}
                                 {checkSameType(actualBeer.type, beer.type) === true ? <Grid size={3}>
-                                    <Paper sx={{ ...styles.exactAttributeBox, animationDelay: '0.2s' }} elevation={2}>
+                                    <Paper className="attribute-box exact" style={{ animationDelay: '0.2s' }} elevation={2}>
                                         {getInfoButtonComponent('type', entryIndex)}
                                         {capitalizeFirstLetter(beer.type)}
                                     </Paper>
                                 </Grid> : checkSameType(actualBeer.type, beer.type) === 'close' ? <Grid size={3}>
-                                    <Paper sx={{ ...styles.closeAttributeBox, animationDelay: '0.2s' }} elevation={2}>
+                                    <Paper className="attribute-box close" style={{ animationDelay: '0.2s' }} elevation={2}>
                                         {getInfoButtonComponent('type', entryIndex)}
                                         {capitalizeFirstLetter(beer.type)}
                                     </Paper>
                                 </Grid> : <Grid size={3}>
-                                    <Paper sx={{ ...styles.attributeBox, animationDelay: '0.2s' }} elevation={2}>
+                                    <Paper className="attribute-box" style={{ animationDelay: '0.2s' }} elevation={2}>
                                         {getInfoButtonComponent('type', entryIndex)}
                                         {capitalizeFirstLetter(beer.type)}
                                     </Paper>
                                 </Grid>}
                                 {checkSameAlcoholContent(actualBeer.alcohol_content, beer.alcohol_content) === true ? <Grid size={3}>
-                                    <Paper sx={{ ...styles.exactAttributeBox, animationDelay: '0.4s' }} elevation={2}>
+                                    <Paper className="attribute-box exact" style={{ animationDelay: '0.4s' }} elevation={2}>
                                         {getInfoButtonComponent('alcohol_content', entryIndex)}
                                         {beer.alcohol_content}
                                     </Paper>
                                 </Grid> : checkSameAlcoholContent(actualBeer.alcohol_content, beer.alcohol_content) === "close" ? <Grid size={3}>
-                                    <Paper sx={{ ...styles.closeAttributeBox, animationDelay: '0.4s' }} elevation={2}>
+                                    <Paper className="attribute-box close" style={{ animationDelay: '0.4s' }} elevation={2}>
                                         {getInfoButtonComponent('alcohol_content', entryIndex)}
                                         {beer.alcohol_content}
                                     </Paper>
                                 </Grid> : <Grid size={3}>
-                                    <Paper sx={{ ...styles.attributeBox, animationDelay: '0.4s' }} elevation={2}>
+                                    <Paper className="attribute-box" style={{ animationDelay: '0.4s' }} elevation={2}>
                                         {getInfoButtonComponent('alcohol_content', entryIndex)}
                                         {beer.alcohol_content}
                                     </Paper>
                                 </Grid>}
                                 {checkSameOrigin(actualBeer.origin, beer.origin) === true ? <Grid size={3}>
-                                    <Paper sx={{ ...styles.exactAttributeBox, animationDelay: '0.6s' }} elevation={2}>
+                                    <Paper className="attribute-box exact" style={{ animationDelay: '0.6s' }} elevation={2}>
                                         {getInfoButtonComponent('origin', entryIndex)}
                                         {beer.origin}
                                     </Paper>
                                 </Grid> : checkSameRegions(actualBeer.region, beer.region) === true ? <Grid size={3}>
-                                    <Paper sx={{ ...styles.closeAttributeBox, animationDelay: '0.6s' }} elevation={2}>
+                                    <Paper className="attribute-box close" style={{ animationDelay: '0.6s' }} elevation={2}>
                                         {getInfoButtonComponent('origin', entryIndex)}
                                         {beer.origin}
                                     </Paper>
                                 </Grid> : <Grid size={3}>
-                                    <Paper sx={{ ...styles.attributeBox, animationDelay: '0.6s' }} elevation={2}>
+                                    <Paper className="attribute-box" style={{ animationDelay: '0.6s' }} elevation={2}>
                                         {getInfoButtonComponent('origin', entryIndex)}
                                         {beer.origin}
                                     </Paper>
@@ -249,7 +180,7 @@ const GameTemplate: React.FC = () => {
                     <Button
                         variant="contained"
                         onClick={handleSubmit}
-                        sx={styles.button}
+                        className="submit-button"
                         disabled={!selectedBeer}
                     >
                         Submit ({guesses}/6)

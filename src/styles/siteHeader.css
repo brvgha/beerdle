@@ -1,0 +1,32 @@
+.site-header {
+    background-color: #212121 !important;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-logo {
+    width: 75px;
+    height: 40px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 50px;
+}
+
+.header-subtitle {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: relative;
+}
+
+.nav-button {
+    margin-left: 24px !important;
+    /* Replaced the gap-on-button logic with a margin */
+}
