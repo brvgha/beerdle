@@ -33,8 +33,10 @@ const InfoPopUpTemplate: React.FC<InfoPopUpProps> = ({ open, onClose, type }) =>
         <Dialog
             open={open}
             onClose={onClose}
-            PaperProps={{
-                className: "info-popup-paper"
+            slotProps={{
+                paper: {
+                    className: "info-popup-paper"
+                }
             }}
         >
             <DialogTitle>

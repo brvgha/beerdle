@@ -1,8 +1,6 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import SiteHeader from "../siteHeader";
-
-
 import "../../styles/pageTemplate.css";
 
 const PageTemplate: React.FC<any> = ({ title }) => {

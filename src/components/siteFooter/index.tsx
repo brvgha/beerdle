@@ -1,6 +1,4 @@
 import { Grid } from "@mui/material";
-
-
 import "../../styles/siteFooter.css";
 
 const SiteFooter: React.FC = () => {

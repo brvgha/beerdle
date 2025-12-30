@@ -1,6 +1,6 @@
 import React from "react";
 import { Dialog, DialogTitle, DialogContent, Typography, Button } from "@mui/material";
-
+import "../../styles/popUpTemplate.css";
 interface PopUpProps {
     open: boolean;
     isCorrect: boolean;
@@ -13,7 +13,7 @@ interface PopUpProps {
     beerDescription: string;
 }
 
-import "../../styles/popUpTemplate.css";
+
 
 const PopUpTemplate: React.FC<PopUpProps> = ({ open, isCorrect, onClose, beerName, beerType, beerOrigin, beerRegion, beerAlcoholContent, beerDescription }) => {
     return (
