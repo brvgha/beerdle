@@ -1,14 +1,14 @@
 import Grid from "@mui/material/Grid";
 import SiteHeader from "../siteHeader";
 import { TextField, Autocomplete, Button, Paper, Typography } from "@mui/material";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import PopUpTemplate from "../popUpTemplate";
 import actual from '../../../data/sample.json';
-import { BeerdleContext } from "../../context/beerdleContext";
 import type { BeerdleProps } from "../../types/interfaces";
-import { capitalizeFirstLetter, checkSameAlcoholContent, checkSameName, checkSameOrigin, checkSameType, checkSameRegions, shorten } from "../../utils";
+import { capitalizeFirstLetter, checkSameAlcoholContent, checkSameName, checkSameOrigin, checkSameType, checkSameRegions } from "../../utils";
 import SiteFooter from "../siteFooter";
 import InfoPopUpTemplate from "../infoPopUpTemplate";
+import { useBeerdle } from "../../hooks/useBeerdle";
 
 const commonAttributeBoxStyles = {
     padding: "0.75rem",
@@ -72,7 +72,7 @@ const styles = {
 };
 
 const GameTemplate: React.FC = () => {
-    const { guesses, incrementGuesses, addToGuessedBeers, guessedBeers, updateOptions, options } = useContext(BeerdleContext);
+    const { guesses, incrementGuesses, addToGuessedBeers, guessedBeers, options } = useBeerdle();
     const [selectedBeer, setSelectedBeer] = useState<BeerdleProps | null>(null);
     const [showPopUp, setShowPopUp] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
@@ -146,11 +146,29 @@ const GameTemplate: React.FC = () => {
                 <Autocomplete
                     options={options}
                     disabled={guesses > 6}
+                    groupBy={(option) => option.region}
                     getOptionLabel={(option) => option.name}
                     onChange={(_event, newValue) => {
                         setSelectedBeer(newValue);
                     }}
                     value={selectedBeer}
+                    renderGroup={(params) => (
+                        <li key={params.key}>
+                            <Typography
+                                sx={{
+                                    fontWeight: 'bold',
+                                    padding: '8px 16px',
+                                    backgroundColor: '#f5f5f5',
+                                    textTransform: 'uppercase',
+                                    fontSize: '0.75rem',
+                                    letterSpacing: '0.05em'
+                                }}
+                            >
+                                {params.group}
+                            </Typography>
+                            <ul style={{ padding: 0 }}>{params.children}</ul>
+                        </li>
+                    )}
                     renderInput={(params) => (
                         <TextField
                             {...params}

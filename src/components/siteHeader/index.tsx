@@ -57,9 +57,9 @@ const SiteHeader: React.FC = () => {
 
   const menuOptions = [
     { label: "Home", path: "/" },
-    { label: "History", path: "/history" },
+    //{ label: "History", path: "/history" },
     { label: "About", path: "/about" },
-    { label: "Logout", path: "/logout" }
+    // { label: "Logout", path: "/logout" }
   ];
 
   const handleMenuSelect = (pageURL: string) => {
