@@ -23,6 +23,8 @@ const GameTemplate: React.FC = () => {
 
     const actualBeer = JSON.parse(JSON.stringify(actual)).beers[0];
 
+    console.log(options.flat().map((option) => option.name).length);
+
     const handleSubmit = () => {
         if (selectedBeer && addToGuessedBeers) {
             const currentGuess = selectedBeer;
@@ -88,7 +90,7 @@ const GameTemplate: React.FC = () => {
                     options={options}
                     disabled={guesses > 6}
                     groupBy={(option) => option.region}
-                    getOptionLabel={(option) => option.name}
+                    getOptionLabel={(option) => option.name + ` (${option.alias.length > 0 ? option.alias + ',' : ''} ${capitalizeFirstLetter(option.type)}, ${option.origin}, ${option.alcohol_content} )`}
                     onChange={(_event, newValue) => {
                         setSelectedBeer(newValue);
                     }}

@@ -1,3 +1,4 @@
+import { indexOf } from "lodash";
 import truncate from "lodash/truncate";
 
 export const shorten = (string: string) => {
@@ -55,11 +56,14 @@ export const checkSameOrigin = (actual: string, guessed: string) => {
 }
 
 export const checkSameAlcoholContent = (actual: string, guessed: string) => {
-    const actualNum = parseFloat(actual.slice(0, actual.length - 2));
-    const guessedNum = parseFloat(guessed.slice(0, guessed.length - 2));
+    // remove the percentage sign at the end and then parse as a float to compare the values
+    const actualNum = parseFloat(actual.slice(0, actual.indexOf("%")));
+    const guessedNum = parseFloat(guessed.slice(0, guessed.indexOf("%")));
+
     if (actualNum === guessedNum) {
         return true;
     } else if (Math.abs(actualNum - guessedNum) < 1) {
+        // check if the absolute difference between the values is less than 1
         return "close";
     } else {
         return false;
