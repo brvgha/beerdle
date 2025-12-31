@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import type { BeerdleProps } from "../types/interfaces";
-import data from "../../data/beers.json";
-import { getBeerdle } from "../api/beerdle-api";
+import { getAll, getBeerdle } from "../api/beerdle-api";
 
 export const useBeerdleGame = () => {
     const sortBeers = (beers: BeerdleProps[]) => {
@@ -12,10 +11,9 @@ export const useBeerdleGame = () => {
         });
     };
 
-    const orderedData = sortBeers(data.beers);
     const [guesses, setGuesses] = useState<number>(1);
     const [guessedBeers, setGuessedBeers] = useState<Map<string, BeerdleProps[]>>(new Map<string, BeerdleProps[]>());
-    const [options, setOptions] = useState<BeerdleProps[]>(orderedData);
+    const [options, setOptions] = useState<BeerdleProps[]>([]);
     const [beerdle, setBeerdle] = useState<BeerdleProps | null>(null);
 
     const checkSessionStorage = useCallback(() => {
@@ -39,10 +37,10 @@ export const useBeerdleGame = () => {
 
     const updateOptions = useCallback((currentGuessedBeers: Map<string, BeerdleProps[]> = guessedBeers) => {
         const allGuessed = Array.from(currentGuessedBeers.values()).flat().map(b => b.name);
-        const filteredOptions = orderedData.filter(b => !allGuessed.includes(b.name));
+        const filteredOptions = options.filter(b => !allGuessed.includes(b.name));
         setOptions(filteredOptions);
         // sessionStorage.setItem("options", JSON.stringify(filteredOptions));
-    }, [orderedData, guessedBeers]);
+    }, [options, guessedBeers]);
 
     const getRegions = useCallback(() => {
         return Array.from(new Set(options.map(b => b.region)));
@@ -76,10 +74,20 @@ export const useBeerdleGame = () => {
         setBeerdle(beer.body);
     }, []);
 
+    const getOptions = useCallback(async () => {
+        const beers = await getAll();
+        if (beers.statusCode != 200) {
+            console.error("Error fetching beers");
+            return [];
+        }
+        setOptions(sortBeers(beers.body))
+    }, []);
+
     useEffect(() => {
         checkSessionStorage();
         getBeerdleOfTheDay();
-    }, [checkSessionStorage, getBeerdleOfTheDay]);
+        getOptions();
+    }, [checkSessionStorage, getBeerdleOfTheDay, getOptions]);
 
     return {
         guesses,

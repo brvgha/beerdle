@@ -81,7 +81,7 @@ const GameTemplate: React.FC = () => {
             <RecommendationBubble />
             <LogoTemplate />
             <Grid size={12} component="div" className="game-container">
-                <Autocomplete
+                {isWin ? <Autocomplete
                     options={options}
                     disabled={guesses > 6}
                     groupBy={(option) => option.region}
@@ -107,7 +107,7 @@ const GameTemplate: React.FC = () => {
                         />
                     )}
                     fullWidth
-                />
+                /> : <Typography variant="h4" sx={{ mt: 2 }}>You Win!</Typography>}
                 <Grid size={12} component="div" sx={{ width: '100%', mt: 2 }}>
                     {guessedBeers && Array.from(guessedBeers.entries()).reverse().flatMap(([key, beers], entryIndex) =>
                         beers.map((beer, i) => (
