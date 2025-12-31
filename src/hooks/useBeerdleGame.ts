@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import type { BeerdleProps } from "../types/interfaces";
 import data from "../../data/beers.json";
+import { getBeerdle } from "../api/beerdle-api";
 
 export const useBeerdleGame = () => {
     const sortBeers = (beers: BeerdleProps[]) => {
@@ -15,6 +16,7 @@ export const useBeerdleGame = () => {
     const [guesses, setGuesses] = useState<number>(1);
     const [guessedBeers, setGuessedBeers] = useState<Map<string, BeerdleProps[]>>(new Map<string, BeerdleProps[]>());
     const [options, setOptions] = useState<BeerdleProps[]>(orderedData);
+    const [beerdle, setBeerdle] = useState<BeerdleProps | null>(null);
 
     const checkSessionStorage = useCallback(() => {
         const storedGuesses = sessionStorage.getItem("guesses");
@@ -39,7 +41,7 @@ export const useBeerdleGame = () => {
         const allGuessed = Array.from(currentGuessedBeers.values()).flat().map(b => b.name);
         const filteredOptions = orderedData.filter(b => !allGuessed.includes(b.name));
         setOptions(filteredOptions);
-        sessionStorage.setItem("options", JSON.stringify(filteredOptions));
+        // sessionStorage.setItem("options", JSON.stringify(filteredOptions));
     }, [orderedData, guessedBeers]);
 
     const getRegions = useCallback(() => {
@@ -63,9 +65,21 @@ export const useBeerdleGame = () => {
         updateOptions(newGuessedBeers);
     };
 
+    const getBeerdleOfTheDay = useCallback(async () => {
+        const beer = await getBeerdle();
+        if (beer.statusCode != 200) {
+            console.error("Error fetching beerdle");
+            setBeerdle(null);
+            return;
+        }
+        console.log(beer.body);
+        setBeerdle(beer.body);
+    }, []);
+
     useEffect(() => {
         checkSessionStorage();
-    }, [checkSessionStorage]);
+        getBeerdleOfTheDay();
+    }, [checkSessionStorage, getBeerdleOfTheDay]);
 
     return {
         guesses,
@@ -74,7 +88,9 @@ export const useBeerdleGame = () => {
         incrementGuesses,
         addToGuessedBeers,
         updateOptions,
-        getRegions
+        getRegions,
+        getBeerdleOfTheDay,
+        beerdle
     };
 };
 

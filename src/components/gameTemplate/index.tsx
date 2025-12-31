@@ -3,7 +3,6 @@ import SiteHeader from "../siteHeader";
 import { TextField, Autocomplete, Button, Paper, Typography } from "@mui/material";
 import React, { useState } from "react";
 import PopUpTemplate from "../popUpTemplate";
-import actual from '../../../data/sample.json';
 import type { BeerdleProps } from "../../types/interfaces";
 import { capitalizeFirstLetter, checkSameAlcoholContent, checkSameName, checkSameOrigin, checkSameType, checkSameRegions } from "../../utils";
 import SiteFooter from "../siteFooter";
@@ -12,25 +11,21 @@ import { useBeerdle } from "../../hooks/useBeerdle";
 import "../../styles/gameTemplate.css";
 import RecommendationBubble from "../recommendationBubble";
 import LogoTemplate from "../logoTemplate";
+import Spinner from "../spinner";
 
 const GameTemplate: React.FC = () => {
-    const { guesses, incrementGuesses, addToGuessedBeers, guessedBeers, options } = useBeerdle();
+    const { guesses, incrementGuesses, addToGuessedBeers, guessedBeers, options, beerdle: actualBeer } = useBeerdle();
     const [selectedBeer, setSelectedBeer] = useState<BeerdleProps | null>(null);
     const [showPopUp, setShowPopUp] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
     const [infoType, setInfoType] = useState<string>('');
     const [isWin, setIsWin] = useState(false);
 
-    const actualBeer = JSON.parse(JSON.stringify(actual)).beers[0];
-
-    console.log(options.flat().map((option) => option.name).length);
-
     const handleSubmit = () => {
-        if (selectedBeer && addToGuessedBeers) {
+        if (selectedBeer && addToGuessedBeers && actualBeer) {
             const currentGuess = selectedBeer;
             addToGuessedBeers(selectedBeer);
             setSelectedBeer(null);
-
             // Check win condition
             if (currentGuess.name === actualBeer.name) {
                 setIsWin(true);
@@ -78,7 +73,7 @@ const GameTemplate: React.FC = () => {
         }
     }
 
-    return (
+    return (actualBeer !== null ?
         <Grid container component="div" direction="column">
             <Grid size={12} component="div">
                 <SiteHeader />
@@ -209,7 +204,7 @@ const GameTemplate: React.FC = () => {
             <Grid size={12} component="div">
                 <SiteFooter />
             </Grid>
-        </Grid>
+        </Grid> : <Spinner />
 
     );
 }

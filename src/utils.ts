@@ -1,4 +1,3 @@
-import { indexOf } from "lodash";
 import truncate from "lodash/truncate";
 
 export const shorten = (string: string) => {

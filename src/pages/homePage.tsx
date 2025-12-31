@@ -1,34 +1,34 @@
 import React from "react";
-// import { BeerdleProps } from "../types/interfaces";
-// import { useQuery } from "@tanstack/react-query";
-// import { checkSessionStorage } from "../utils";
-// import { useNavigate } from "react-router-dom";
-// import Spinner from "../components/spinner";
+import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
+import Spinner from "../components/spinner";
 import GameTemplate from "../components/gameTemplate";
+import { healthCheck } from "../api/beerdle-api";
+import ErrorTemplate from "../components/errorTemplate";
 
 const HomePage: React.FC = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  /* React.useEffect(() => {
-    if (!checkSessionStorage(sessionStorage.getItem("loggedin"))) {
+  React.useEffect(() => {
+    if (!sessionStorage.getItem("guesses")) {
       navigate("/");
     }
-  }, [navigate]); */
+  }, [navigate]);
 
-  /* const { data, error, isLoading, isError } = useQuery<[], Error>({
-    queryKey: ["beerdle-data"],
-    queryFn: async () => {
-      const res = await fetch("/api/data");
-      if (!res.ok) throw new Error("Failed to fetch data");
-      return res.json();
-    },
-  }); */
+  const { error, isLoading, isError } = useQuery({
+    queryKey: ["status"],
+    queryFn: healthCheck,
+    retry: 1,
+    retryDelay: 1000,
+  });
 
-  // if (isLoading) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
-  // if (isError) return <h1>{error.message}</h1>;
-
+  if (isError) {
+    return <ErrorTemplate error={error?.message} />;
+  }
   return <GameTemplate />;
+
 };
 
 export default HomePage;
