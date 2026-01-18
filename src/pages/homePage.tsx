@@ -15,8 +15,6 @@ const HomePage: React.FC = () => {
     retryDelay: 1000,
   });
 
-  console.log('isLoading?', isLoading);
-
   if (isLoading) return <Spinner />;
 
   if (isError) {

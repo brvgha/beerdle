@@ -2,8 +2,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const getHeaders = () => {
-    const sessionToken = sessionStorage.getItem('beerdle_session');
-    console.log('Using session token:', sessionToken);
+    const sessionToken = localStorage.getItem('beerdle_session');
     return {
         'Content-Type': 'application/json',
         'X-API-Key': API_KEY || '',
@@ -34,7 +33,6 @@ export const getSession = async () => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Session data received:', data);
         return data;
     } catch (error) {
         console.error('Error fetching session:', error);
@@ -66,7 +64,6 @@ export const getBeerdle = async () => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json()
-        console.log(data, 'Data received')
         console.log('Beerdle fetched successfully')
         return data;
     } catch (error) {

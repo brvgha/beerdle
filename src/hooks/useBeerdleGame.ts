@@ -1,28 +1,22 @@
 import { useState, useEffect, useCallback } from "react";
 import type { BeerdleProps } from "../types/interfaces";
 import { getAll, getBeerdle } from "../api/beerdle-api";
+import { sortBeers } from "../utils/beerUtils";
 
 export const useBeerdleGame = () => {
-    const sortBeers = (beers: BeerdleProps[]) => {
-        return [...beers].sort((a, b) => {
-            const regionCompare = a.region.localeCompare(b.region);
-            if (regionCompare !== 0) return regionCompare;
-            return a.name.localeCompare(b.name);
-        });
-    };
 
     const [guesses, setGuesses] = useState<number>(1);
     const [guessedBeers, setGuessedBeers] = useState<Map<string, BeerdleProps[]>>(new Map<string, BeerdleProps[]>());
     const [options, setOptions] = useState<BeerdleProps[]>([]);
     const [beerdle, setBeerdle] = useState<BeerdleProps | null>(null);
 
-    const checkSessionStorage = useCallback(() => {
-        const storedGuesses = sessionStorage.getItem("guesses");
+    const checkLocalStorage = useCallback(() => {
+        const storedGuesses = localStorage.getItem("guesses");
         if (storedGuesses) {
             setGuesses(parseInt(storedGuesses));
         }
 
-        const storedGuessedBeers = sessionStorage.getItem("guessedBeers");
+        const storedGuessedBeers = localStorage.getItem("guessedBeers");
         if (storedGuessedBeers) {
             try {
                 const parsed = JSON.parse(storedGuessedBeers);
@@ -49,7 +43,7 @@ export const useBeerdleGame = () => {
     const incrementGuesses = (guess: number) => {
         const nextGuess = guess + 1;
         setGuesses(nextGuess);
-        sessionStorage.setItem("guesses", nextGuess.toString());
+        localStorage.setItem("guesses", nextGuess.toString());
     };
 
     const addToGuessedBeers = (beer: BeerdleProps) => {
@@ -59,7 +53,7 @@ export const useBeerdleGame = () => {
         newGuessedBeers.set(key, [...currentGuessesForKey, beer]);
 
         setGuessedBeers(newGuessedBeers);
-        sessionStorage.setItem("guessedBeers", JSON.stringify(Array.from(newGuessedBeers.entries())));
+        localStorage.setItem("guessedBeers", JSON.stringify(Array.from(newGuessedBeers.entries())));
         updateOptions(newGuessedBeers);
     };
 
@@ -70,7 +64,6 @@ export const useBeerdleGame = () => {
             setBeerdle(null);
             return;
         }
-        console.log(beer.body);
         setBeerdle(beer.body);
     }, []);
 
@@ -84,10 +77,10 @@ export const useBeerdleGame = () => {
     }, []);
 
     useEffect(() => {
-        checkSessionStorage();
+        checkLocalStorage();
         getBeerdleOfTheDay();
         getOptions();
-    }, [checkSessionStorage, getBeerdleOfTheDay, getOptions]);
+    }, [checkLocalStorage, getBeerdleOfTheDay, getOptions]);
 
     return {
         guesses,

@@ -4,7 +4,7 @@ import { TextField, Autocomplete, Button, Paper, Typography } from "@mui/materia
 import React, { useState } from "react";
 import PopUpTemplate from "../popUpTemplate";
 import type { BeerdleProps } from "../../types/interfaces";
-import { capitalizeFirstLetter, checkSameAlcoholContent, checkSameOrigin, checkSameType, checkSameRegions, checkNameCloseness } from "../../utils";
+import { capitalizeFirstLetter, checkSameAlcoholContent, checkSameOrigin, checkSameType, checkSameRegions, checkNameCloseness, checkIsWin } from "../../utils/beerUtils";
 import SiteFooter from "../siteFooter";
 import InfoPopUpTemplate from "../infoPopUpTemplate";
 import { useBeerdle } from "../../hooks/useBeerdle";
@@ -19,7 +19,7 @@ const GameTemplate: React.FC = () => {
     const [showPopUp, setShowPopUp] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
     const [infoType, setInfoType] = useState<string>('');
-    const [isWin, setIsWin] = useState(false);
+    const [isWin, setIsWin] = useState(checkIsWin());
 
     const handleSubmit = () => {
         if (selectedBeer && addToGuessedBeers && actualBeer) {
@@ -29,6 +29,7 @@ const GameTemplate: React.FC = () => {
             // Check win condition
             if (currentGuess.name === actualBeer.name) {
                 setIsWin(true);
+                localStorage.setItem('isWin', 'true');
                 setTimeout(() => {
                     setShowPopUp(true);
                 }, 1500);
@@ -81,7 +82,7 @@ const GameTemplate: React.FC = () => {
             <RecommendationBubble />
             <LogoTemplate />
             <Grid size={12} component="div" className="game-container">
-                {isWin ? <Autocomplete
+                {!isWin ? <Autocomplete
                     options={options}
                     disabled={guesses > 6}
                     groupBy={(option) => option.region}
@@ -112,7 +113,7 @@ const GameTemplate: React.FC = () => {
                     {guessedBeers && Array.from(guessedBeers.entries()).reverse().flatMap(([key, beers], entryIndex) =>
                         beers.map((beer, i) => (
                             <Grid container key={`${key}-${i}`} spacing={1} sx={{ mb: 1 }}>
-                                {checkNameCloseness(actualBeer.name, beer.name) ? <Grid size={3}>
+                                {checkNameCloseness(actualBeer.name, beer.name) === true ? <Grid size={3}>
                                     <Paper className="attribute-box exact" elevation={2}>
                                         {getInfoButtonComponent('name', entryIndex)}
                                         {beer.name}

@@ -33,19 +33,26 @@ const App = () => {
       try {
         await healthCheck();
         console.log("Session initialized");
-        if (!sessionStorage.getItem('beerdle_session')) {
+        if (!localStorage.getItem('beerdle_session')) {
           const session = await getSession();
-          sessionStorage.setItem('beerdle_session', session.sessionToken);
-          sessionStorage.setItem('last_played', new Date().toISOString());
+          localStorage.setItem('beerdle_session', session.sessionToken);
+          localStorage.setItem('last_played', new Date().toISOString());
         }
 
-        if (sessionStorage.getItem('last_played')) {
-          const lastPlayed = new Date(sessionStorage.getItem('last_played') || '');
+        if (localStorage.getItem('last_played')) {
+          const lastPlayed = new Date(localStorage.getItem('last_played') || '');
           const now = new Date();
-          const diffTime = Math.abs(now.getTime() - lastPlayed.getTime());
-          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-          if (diffDays >= 1) {
-            sessionStorage.setItem('last_played', new Date().toISOString());
+
+          // Reset game if it's a new day (UTC based for consistency)
+          const isSameDay =
+            now.getUTCFullYear() === lastPlayed.getUTCFullYear() &&
+            now.getUTCMonth() === lastPlayed.getUTCMonth() &&
+            now.getUTCDate() === lastPlayed.getUTCDate();
+
+          if (!isSameDay) {
+            localStorage.removeItem('guesses');
+            localStorage.removeItem('guessedBeers');
+            localStorage.setItem('last_played', now.toISOString());
           }
         }
 
