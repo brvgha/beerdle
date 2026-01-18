@@ -13,7 +13,6 @@ const AboutPage: React.FC = () => {
     sessionStorage.clear();
   } */
   //sessionStorage.setItem("loggedin", "false");
-
   return (
     <Grid container className="about-root" direction="column" sx={{ my: 1 }}>
       <RecommendationBubble />
@@ -33,7 +32,7 @@ const AboutPage: React.FC = () => {
             variant="contained"
             sx={{ minWidth: "100px", backgroundColor: "#00c43bff", color: "#ffffffff" }}
             component={Link}
-            to="/"
+            to="/home"
           >
             Play
           </Button>

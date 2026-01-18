@@ -4,7 +4,7 @@ import { TextField, Autocomplete, Button, Paper, Typography } from "@mui/materia
 import React, { useState } from "react";
 import PopUpTemplate from "../popUpTemplate";
 import type { BeerdleProps } from "../../types/interfaces";
-import { capitalizeFirstLetter, checkSameAlcoholContent, checkSameName, checkSameOrigin, checkSameType, checkSameRegions } from "../../utils";
+import { capitalizeFirstLetter, checkSameAlcoholContent, checkSameOrigin, checkSameType, checkSameRegions, checkNameCloseness } from "../../utils";
 import SiteFooter from "../siteFooter";
 import InfoPopUpTemplate from "../infoPopUpTemplate";
 import { useBeerdle } from "../../hooks/useBeerdle";
@@ -112,8 +112,13 @@ const GameTemplate: React.FC = () => {
                     {guessedBeers && Array.from(guessedBeers.entries()).reverse().flatMap(([key, beers], entryIndex) =>
                         beers.map((beer, i) => (
                             <Grid container key={`${key}-${i}`} spacing={1} sx={{ mb: 1 }}>
-                                {checkSameName(actualBeer.name, beer.name) ? <Grid size={3}>
+                                {checkNameCloseness(actualBeer.name, beer.name) ? <Grid size={3}>
                                     <Paper className="attribute-box exact" elevation={2}>
+                                        {getInfoButtonComponent('name', entryIndex)}
+                                        {beer.name}
+                                    </Paper>
+                                </Grid> : checkNameCloseness(actualBeer.name, beer.name) === "close" ? <Grid size={3}>
+                                    <Paper className="attribute-box close" elevation={2}>
                                         {getInfoButtonComponent('name', entryIndex)}
                                         {beer.name}
                                     </Paper>

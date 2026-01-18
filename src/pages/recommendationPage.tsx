@@ -4,6 +4,7 @@ import SiteFooter from "../components/siteFooter";
 import LogoTemplate from "../components/logoTemplate";
 import { useState } from "react";
 import type { BeerdleProps } from "../types/interfaces";
+import { sendRecommendation } from "../api/beerdle-api";
 
 
 const RecommendationPage: React.FC = () => {
@@ -92,7 +93,7 @@ const RecommendationPage: React.FC = () => {
                         fullWidth
                     />
                 </Grid>
-                <Button type="submit" variant="contained" sx={{ mt: 2, color: '#ffffff', backgroundColor: '#000000' }}>Add Beer</Button>
+                <Button type="submit" onClick={() => sendRecommendation(beer)} variant="contained" sx={{ mt: 2, color: '#ffffff', backgroundColor: '#000000' }}>Add Beer</Button>
             </Grid>
 
             <Grid>

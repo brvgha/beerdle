@@ -28,9 +28,9 @@ const SiteHeader: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   const menuOptions = [
-    { label: "Home", path: "/" },
+    { label: "Home", path: "/home" },
     //{ label: "History", path: "/history" },
-    { label: "About", path: "/about" },
+    { label: "About", path: "/" },
     // { label: "Logout", path: "/logout" }
   ];
 

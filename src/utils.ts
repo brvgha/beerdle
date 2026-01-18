@@ -20,9 +20,6 @@ export const toProperCase = (word: string) => {
     return firstLetter.concat(word.substring(1, word.length))
 }
 
-export const forWikiSearch = (word: string) => {
-    return word.replace(" ", "_");
-}
 
 export const delay = (ms: number): Promise<void> => {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -75,4 +72,22 @@ export const checkSameName = (actual: string, guessed: string) => {
 
 export const checkSameRegions = (actual: string, guessed: string) => {
     return actual === guessed;
+}
+
+export const checkNameCloseness = (actual: string, guessed: string) => {
+    const actualArr = actual.includes(" ") ? actual.split(" ") : [actual];
+    const guessedArr = guessed.includes(" ") ? guessed.split(" ") : [guessed];
+    let close = false;
+    for (let i = 0; i < actualArr.length; i++) {
+        if (guessedArr.includes(actualArr[i])) {
+            close = true;
+        }
+    }
+    if (actual === guessed) {
+        return true;
+    } else if (close) {
+        return "close";
+    } else {
+        return false;
+    }
 }

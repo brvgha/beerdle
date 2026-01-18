@@ -1,19 +1,12 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
 import Spinner from "../components/spinner";
 import GameTemplate from "../components/gameTemplate";
 import { healthCheck } from "../api/beerdle-api";
 import ErrorTemplate from "../components/errorTemplate";
 
 const HomePage: React.FC = () => {
-  const navigate = useNavigate();
 
-  React.useEffect(() => {
-    if (!sessionStorage.getItem("guesses")) {
-      navigate("/");
-    }
-  }, [navigate]);
 
   const { error, isLoading, isError } = useQuery({
     queryKey: ["status"],
@@ -21,6 +14,8 @@ const HomePage: React.FC = () => {
     retry: 1,
     retryDelay: 1000,
   });
+
+  console.log('isLoading?', isLoading);
 
   if (isLoading) return <Spinner />;
 
