@@ -1,12 +1,13 @@
 # Build stage
 FROM node:20-slim as build-stage
 
-RUN npm install -g typescript
+
 
 WORKDIR /app
 
 # Copy package files and install dependencies
 COPY package*.json ./
+RUN npm install -g typescript
 RUN npm install
 
 # Copy source code and build
