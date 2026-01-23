@@ -1,0 +1,67 @@
+.game-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-logo {
+    padding: 1em;
+    display: block;
+    margin: 0 auto;
+    will-change: filter;
+    transition: filter 300ms;
+    background-color: #ffffff;
+    width: 20%;
+    height: 20%;
+    border-radius: 20px;
+}
+
+.submit-button {
+    margin-top: 1rem !important;
+    width: 100% !important;
+    background-color: #212121 !important;
+    color: #ffffff !important;
+}
+
+.attribute-box {
+    padding: 0.75rem;
+    text-align: center;
+    background-color: #f0f0f0;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    gap: 15px;
+    animation: flipIn 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) backwards;
+}
+
+.attribute-box h6 {
+    margin: 0;
+    min-height: 2.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attribute-box.close {
+    background-color: #ffa500;
+}
+
+.attribute-box.exact {
+    background-color: #00ff00 !important;
+}
+
+.group-header {
+    font-weight: bold;
+    padding: 8px 16px;
+    background-color: #f5f5f5;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}

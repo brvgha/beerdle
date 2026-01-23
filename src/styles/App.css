@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: 'Nunito', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .logo {
@@ -54,4 +55,17 @@
     transform: rotateX(0);
     opacity: 1;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Fredoka', sans-serif;
+}
+
+body {
+  font-family: 'Nunito', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

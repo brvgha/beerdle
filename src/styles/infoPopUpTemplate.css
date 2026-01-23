@@ -1,0 +1,26 @@
+.info-popup-paper {
+    padding: 2rem !important;
+    text-align: center;
+    border-radius: 15px !important;
+    min-width: 300px;
+}
+
+.info-popup-title {
+    font-weight: bold !important;
+    text-align: center;
+}
+
+.info-popup-content {
+    margin: 1rem 0;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.info-popup-close-button {
+    margin-top: 1rem !important;
+    background-color: #212121 !important;
+}
+
+.info-popup-close-button:hover {
+    background-color: #424242 !important;
+}

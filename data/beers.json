@@ -1,693 +1,778 @@
 {
-    "beers":
-    [
-        {
-            "name": "Heineken",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Netherlands",
-            "description": "Heineken is a pale lager beer with a slightly bitter taste and a refreshing finish. It is one of the most popular beers worldwide."
-        },
-        {
-            "name": "Guinness",
-            "alias": "",
-            "type": "stout",
-            "alcohol_content": "4.2%",
-            "origin": "Ireland",
-            "description": "Guinness is a dark Irish stout known for its creamy texture and rich, roasted flavor with hints of coffee and chocolate."
-        },
-        {
-            "name": "Sapporo",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Japan",
-            "description": "Sapporo is a crisp and refreshing lager with a light malt sweetness and a clean finish, making it a popular choice for pairing with food."
-        },
-        {
-            "name": "Blue Moon",
-            "alias": "",
-            "type": "wheat beer",
-            "alcohol_content": "5.4%",
-            "origin": "United States",
-            "description": "Blue Moon is a Belgian-style wheat beer brewed with orange peel and coriander, giving it a citrusy aroma and a smooth, creamy mouthfeel."
-        },
-        {
-            "name": "Corona Extra",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "4.6%",
-            "origin": "Mexico",
-            "description": "Corona Extra is a light and refreshing lager with a mild flavor profile, often enjoyed with a wedge of lime to enhance its citrus notes."
-        },
-        {
-            "name": "Stella Artois",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5.2%",
-            "origin": "Belgium",
-            "description": "Stella Artois is a premium lager with a balanced taste, featuring a slightly bitter finish and a crisp, clean flavor."
-        },
-        {
-            "name": "Samuel Adams Boston Lager",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "United States",
-            "description": "Samuel Adams Boston Lager is a full-bodied beer with a rich amber color, offering a complex flavor profile with notes of caramel and a hoppy finish."
-        },
-        {
-            "name": "Pilsner Urquell",
-            "alias": "",
-            "type": "pilsner",
-            "alcohol_content": "4.4%",
-            "origin": "Czech Republic",
-            "description": "Pilsner Urquell is the world's first pale lager, known for its crisp taste, balanced bitterness, and refreshing qualities."
-        },
-        {
-            "name": "Coors Light",
-            "alias": "",
-            "type": "light lager",
-            "alcohol_content": "4.2%",
-            "origin": "United States",
-            "description": "Coors Light is a light lager with a smooth, crisp taste and a refreshing finish, making it a popular choice for casual drinking."
-        },
-        {
-            "name": "Dos Equis Lager Especial",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "4.2%",
-            "origin": "Mexico",
-            "description": "Dos Equis Lager Especial is a well-balanced lager with a light malt sweetness and a crisp, clean finish, often enjoyed with Mexican cuisine."
-        },
-        {
-            "name": "Lagunitas IPA",
-            "alias": "",
-            "type": "pale ale",
-            "alcohol_content": "6.2%",
-            "origin": "United States",
-            "description": "Lagunitas IPA is a hoppy and bold India Pale Ale with citrus and pine notes, delivering a strong aroma and a slightly bitter finish."
-        },
-        {
-            "name": "Hoegaarden",
-            "alias": "",
-            "type": "wheat beer",
-            "alcohol_content": "4.9%",
-            "origin": "Belgium",
-            "description": "Hoegaarden is a Belgian-style wheat beer known for its cloudy appearance and refreshing taste, with hints of citrus and coriander."
-        },
-        {
-            "name": "Yuengling Traditional Lager",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "4.5%",
-            "origin": "United States",
-            "description": "Yuengling Traditional Lager is a classic American lager with a medium body, offering a balanced flavor with a touch of caramel and a smooth finish."
-        },
-        {
-            "name": "Modelo Especial",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "4.4%",
-            "origin": "Mexico",
-            "description": "Modelo Especial is a pilsner-style lager with a rich, full flavor and a crisp, refreshing finish, often paired with spicy foods."
-        },
-        {
-            "name": "Anchor Steam Beer",
-            "alias": "",
-            "type": "steam beer",
-            "alcohol_content": "4.9%",
-            "origin": "United States",
-            "description": "Anchor Steam Beer is a unique American beer brewed using a special steam fermentation process, resulting in a rich, malty flavor with a hint of caramel."
-        },
-        {
-            "name": "Carlsberg",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Denmark",
-            "description": "Carlsberg is a well-known Danish lager with a smooth and balanced taste, featuring a mild bitterness and a clean finish."
-        },
-        {
-            "name": "Tiger Beer",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Singapore",
-            "description": "Tiger Beer is a popular Asian lager known for its crisp and refreshing taste, with a light malt flavor and a slightly bitter finish."
-        },
-        {
-            "name": "Murphy's Irish Stout",
-            "alias": "",
-            "type": "stout",
-            "alcohol_content": "4%",
-            "origin": "Ireland",
-            "description": "Murphy's Irish Stout is a smooth and creamy stout with a rich, roasted flavor and subtle chocolate notes, offering a less bitter alternative to other stouts."
-        },
-        {
-            "name":"Rockshore Lager",
-            "alias": "",
-            "type":"light lager",
-            "alcohol_content":"4.3%",
-            "origin":"Ireland",
-            "description":"Rockshore Lager is a smooth and refreshing Irish lager with a light malt sweetness and a crisp finish, perfect for casual drinking."
-        },
-        {
-            "name": "Bulmer's Original Cider",
-            "alias": "Mager's Original Cider",
-            "type": "cider",
-            "alcohol_content": "4.5%",
-            "origin": "United Kingdom",
-            "description": "Bulmer's Original Cider is a classic English cider made from a blend of apples, offering a crisp and refreshing taste with a balanced sweetness and a dry finish."
-        },
-        {
-            "name": "Strongbow Gold Apple Cider",
-            "alias": "",
-            "type": "cider",
-            "alcohol_content": "5%",
-            "origin": "United Kingdom",
-            "description": "Strongbow Gold Apple Cider is a popular cider known for its crisp apple flavor and refreshing taste, with a balanced sweetness and a clean finish."
-        },
-        {
-            "name": "Orchard Thieves Apple Cider",
-            "alias": "Apple Bandit Cider",
-            "type": "cider",
-            "alcohol_content": "4.5%",
-            "origin": "Ireland",
-            "description": "Orchard Thieves Apple Cider is a vibrant and refreshing cider with a bold apple flavor, offering a perfect balance of sweetness and tartness."
-        },
-        {
-            "name": "Rekorderlig Strawberry-Lime Cider",
-            "alias": "",
-            "type": "cider",
-            "alcohol_content": "4%",
-            "origin": "Sweden",
-            "description": "Rekorderlig Strawberry-Lime Cider is a fruity and refreshing cider that combines the sweetness of strawberries with the zesty tang of lime, creating a delightful drinking experience."
-        },
-        {
-            "name": "Carling",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "4%",
-            "origin": "United Kingdom",
-            "description": "Carling is a popular British lager known for its light and crisp taste, making it a favorite choice for casual drinking."
-        },
-        {
-            "name": "Foster's Lager",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Australia",
-            "description": "Foster's Lager is a well-known Australian beer with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish."
-        },
-        {
-            "name": "Steinlager",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "New Zealand",
-            "description": "Steinlager is a premium New Zealand lager known for its clean and crisp taste, with a balanced malt flavor and a refreshing finish."
-        },
-        {
-            "name": "Asahi Super Dry",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Japan",
-            "description": "Asahi Super Dry is a popular Japanese lager known for its crisp and dry taste, offering a refreshing drinking experience with a light malt flavor."
-        },
-        {
-            "name": "Tsingtao",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "4.7%",
-            "origin": "China",
-            "description": "Tsingtao is a well-known Chinese lager with a light and crisp taste, featuring a mild malt flavor and a refreshing finish."
-        },
-        {
-            "name": "Kingfisher",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "4.8%",
-            "origin": "India",
-            "description": "Kingfisher is a popular Indian lager known for its smooth and refreshing taste, with a light malt flavor and a crisp finish."
-        },
-        {
-            "name": "Brahma",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "4.3%",
-            "origin": "Brazil",
-            "description": "Brahma is a well-known Brazilian lager with a light and refreshing taste, featuring a mild malt flavor and a crisp finish."
-        },
-        {
-            "name": "Mythos",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Greece",
-            "description": "Mythos is a popular Greek lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish."
-        },
-        {
-            "name": "Efes Pilsener",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Turkey",
-            "description": "Efes Pilsener is a well-known Turkish lager with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish."
-        },
-        {
-            "name": "San Miguel",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Philippines",
-            "description": "San Miguel is a popular Filipino lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish."
-        },
-        {
-            "name": "Super Bock",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5.2%",
-            "origin": "Portugal",
-            "description": "Super Bock is a well-known Portuguese lager with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish."
-        },
-        {
-            "name": "Rockshar Cider",
-            "alias": "",
-            "type": "cider",
-            "alcohol_content": "4.3%",
-            "origin": "Ireland",
-            "description": "Rockshar Cider is a smooth and refreshing Irish cider with a light apple sweetness and a crisp finish, perfect for casual drinking."
-        },
-        {
-            "name":"Birra Moretti",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"4.6%",
-            "origin":"Italy",
-            "description":"Birra Moretti is a traditional Italian lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish."
-        },
-        {
-            "name":"Peroni Nastro Azzurro",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5.1%",
-            "origin":"Italy",
-            "description":"Peroni Nastro Azzurro is a premium Italian lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish."
-        },
-        {
-            "name": "Budweiser",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "United States",
-            "description": "Budweiser is a classic American lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish."
-        },
-        {
-            "name": "Beck's",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Germany",
-            "description": "Beck's is a well-known German lager with a crisp and refreshing taste, featuring a light malt flavor and a slightly bitter finish."
-        },
-        {
-            "name": "Kirin Ichiban",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Japan",
-            "description": "Kirin Ichiban is a premium Japanese lager known for its smooth and rich flavor, made using a unique first-press brewing method that enhances its malt sweetness."
-        },
-        {
-            "name":"Amstel",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5%",
-            "origin":"Netherlands",
-            "description":"Amstel is a popular Dutch lager with a smooth and balanced taste, featuring a light malt flavor and a crisp finish."
-        },
-        {
-            "name":"Grolsch",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5%",
-            "origin":"Netherlands",
-            "description":"Grolsch is a traditional Dutch lager known for its distinctive swing-top bottle and its rich, full-bodied flavor with a slightly bitter finish."
-        },
-        {
-            "name":"Tuborg",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"4.6%",
-            "origin":"Denmark",
-            "description":"Tuborg is a popular Danish lager with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish."
-        },
-        {
-            "name":"Kozel",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"4.6%",
-            "origin":"Czech Republic",
-            "description":"Kozel is a well-known Czech lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish."
-        },
-        {
-            "name":"Tyskie",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5.2%",
-            "origin":"Poland",
-            "description":"Tyskie is a popular Polish lager known for its smooth and refreshing taste, with a light malt flavor and a clean finish."
-        },
-        {
-            "name":"Żywiec",
-            "alias": "Zywiec",
-            "type":"lager",
-            "alcohol_content":"5.6%",
-            "origin":"Poland",
-            "description":"Żywiec is a traditional Polish lager with a rich and full-bodied flavor, featuring a balanced malt sweetness and a slightly bitter finish."
-        },
-        {
-            "name":"Lech",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5%",
-            "origin":"Poland",
-            "description":"Lech is a popular Polish lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish."
-        },
-        {
-            "name": "Smithwicks",
-            "alias": "",
-            "type": "red ale",
-            "alcohol_content": "4.5%",
-            "origin": "Ireland",
-            "description": "Smithwicks is a traditional Irish red ale with a smooth and malty flavor, featuring caramel notes and a slightly bitter finish."
-        },
-        {
-            "name":"Harp Lager",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5%",
-            "origin":"Ireland",
-            "description":"Harp Lager is a crisp and refreshing Irish lager with a light malt flavor and a clean finish, perfect for casual drinking."
-        },
-        {
-            "name": "Beamish Irish Stout",
-            "alias": "",
-            "type": "stout",
-            "alcohol_content": "4.1%",
-            "origin": "Ireland",
-            "description": "Beamish Irish Stout is a traditional stout with a rich, roasted flavor and a creamy texture, offering notes of coffee and chocolate with a smooth finish."  
-        },
-        {
-            "name": "Hop House 13 Lager",
-            "alias": "",
-            "type": "lager",
-            "alcohol_content": "5%",
-            "origin": "Ireland",
-            "description": "Hop House 13 Lager is a vibrant and flavorful Irish lager brewed with a blend of hops, delivering a crisp taste with fruity and hoppy notes."
-        },
-        {
-            "name":"Bavaria",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5%",
-            "origin":"Netherlands",
-            "description":"Bavaria is a well-known Dutch lager with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish."
-        },
-        {
-            "name":"Chang Beer",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5%",
-            "origin":"Thailand",
-            "description":"Chang Beer is a popular Thai lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish."
-        },
-        {
-            "name":"Singha",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5%",
-            "origin":"Thailand",
-            "description":"Singha is a premium Thai lager with a rich and full-bodied flavor, featuring a balanced malt sweetness and a slightly bitter finish."
-        },
-        {
-            "name":"Lachouffe",
-            "alias": "",
-            "type":"blonde",
-            "alcohol_content":"8%",
-            "origin":"Belgium",
-            "description":"Lachouffe is a Belgian Strong Ale known for its complex flavor profile, featuring fruity and spicy notes with a warming finish."
-        },
-        {
-            "name":"Duvel",
-            "alias": "",
-            "type":"strong ale",
-            "alcohol_content":"8.5%",
-            "origin":"Belgium",
-            "description":"Duvel is a renowned Belgian strong ale with a distinctive fruity aroma and a dry, hoppy finish, making it a favorite among beer enthusiasts."
-        },
-        {
-            "name":"Paulaner Hefe-Weißbier",
-            "alias": "",
-            "type":"wheat beer",
-            "alcohol_content":"5.5%",
-            "origin":"Germany",
-            "description":"Paulaner Hefe-Weißbier is a traditional German wheat beer known for its cloudy appearance and refreshing taste, with hints of banana and clove."
-        },
-        {
-            "name":"Hofbräu Original",
-            "alias": "Hofbrau",
-            "type":"lager",
-            "alcohol_content":"5.1%",
-            "origin":"Germany",
-            "description":"Hofbräu Original is a classic German lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish."
-        },
-        {
-            "name":"Leffe Blonde",
-            "alias": "",
-            "type":"blonde",
-            "alcohol_content":"6.6%",
-            "origin":"Belgium",
-            "description":"Leffe Blonde is a Belgian blonde ale known for its rich and fruity flavor, with notes of vanilla and clove, and a smooth finish."
-        },
-        {
-            "name":"Rebel Red Ale",
-            "alias": "",
-            "type":"red ale",
-            "alcohol_content":"4.3%",
-            "origin":"Ireland",
-            "description":"Rebel Red Ale is a smooth and malty Irish red ale with caramel notes and a slightly bitter finish, offering a balanced and enjoyable drinking experience."
-        },
-        {
-            "name":"Kopparberg Pear Cider",
-            "alias": "",
-            "type":"cider",
-            "alcohol_content":"4.5%",
-            "origin":"Sweden",
-            "description":"Kopparberg Pear Cider is a refreshing cider made from ripe pears, offering a sweet and fruity flavor with a crisp finish."
-        },
-        {
-            "name":"Kopparberg Mixed Fruit Cider",
-            "alias": "",
-            "type":"cider",
-            "alcohol_content":"4%",
-            "origin":"Sweden",
-            "description":"Kopparberg Mixed Fruit Cider is a vibrant cider that combines the flavors of various fruits, delivering a sweet and tangy taste with a refreshing finish."
-        },
-        {
-            "name":"Peja Lager",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"4.7%",
-            "origin":"Kosovo",
-            "description":"Peja Lager is a popular Kosovan lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish."
-        },
-        {
-            "name":"Birra Tirana",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"4.8%",
-            "origin":"Albania",
-            "description":"Birra Tirana is a well-known Albanian lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish."
-        },
-        {
-            "name":"Speight's Lager",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"4.5%",
-            "origin":"New Zealand",
-            "description":"Speight's Lager is a traditional New Zealand lager known for its smooth and refreshing taste, with a light malt flavor and a clean finish."
-        },
-        {
-            "name":"Monteith's Original Ale",
-            "alias": "",
-            "type":"ale",
-            "alcohol_content":"5%",
-            "origin":"New Zealand",
-            "description":"Monteith's Original Ale is a well-known New Zealand ale with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish."
-        },
-        {
-            "name":"Kazbegi Beer",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5%",
-            "origin":"Georgia",
-            "description":"Kazbegi Beer is a popular Georgian lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish."
-        },
-        {
-            "name": "Hollow's and Fentimans",
-            "alias": "",
-            "type": "ginger beer",
-            "alcohol_content": "4%",
-            "origin": "United Kingdom",
-            "description": "Hollow's and Fentimans Ginger Beer is a traditional ginger beer with a strong ginger flavor and a refreshing, spicy finish."
-        },
-        {
-            "name": "Crabbie's Original Alcoholic Ginger Beer",
-            "alias": "",
-            "type": "ginger beer",
-            "alcohol_content": "4%",
-            "origin": "United Kingdom",
-            "description": "Crabbie's Original Alcoholic Ginger Beer is a popular ginger beer known for its bold ginger taste and refreshing qualities, making it a favorite choice for those who enjoy a spicy kick."
-        },
-        {
-            "name":"Estrella Damm",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5.4%",
-            "origin":"Spain",
-            "description":"Estrella Damm is a well-known Spanish lager with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish."
-        },
-        {
-            "name":"Madri",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5%",
-            "origin":"Spain",
-            "description":"Madri is a popular Spanish lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish."
-        },
-        {
-            "name":"San Miguel Especial",
-            "alias": "",
-            "type":"lager",
-            "alcohol_content":"5.4%",
-            "origin":"Spain",
-            "description":"San Miguel Especial is a premium Spanish lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish."
-        },
-        {
-            "name":"Strongbow Mixed Fruit Cider",
-            "alias": "",
-            "type":"cider",
-            "alcohol_content":"4%",
-            "origin":"United Kingdom",
-            "description":"Strongbow Mixed Fruit Cider is a refreshing cider that combines the flavors of various fruits, delivering a sweet and tangy taste with a crisp finish."
-        },
-        {
-            "name": "Sierra Nevada Pale Ale",
-            "alias": "",
-            "type": "pale ale",
-            "alcohol_content": "5.6%",
-            "origin": "United States",
-            "description": "A classic American pale ale known for its pine and citrus hops balanced against a smooth malt backbone."
-        },
-        {
-            "name": "Weihenstephaner Hefeweissbier",
-            "alias": "",
-            "type": "wheat beer",
-            "alcohol_content": "5.4%",
-            "origin": "Germany",
-            "description": "A famous Bavarian wheat beer with notes of banana, clove, and soft malt sweetness."
-        },
-        {
-            "name": "Kilkenny Irish Cream Ale",
-            "alias": "",
-            "type": "cream ale",
-            "alcohol_content": "4.3%",
-            "origin": "Ireland",
-            "description": "A smooth, creamy Irish ale with caramel malt flavor and a soft finish, served on nitro."
-        },
-        {
-            "name": "Bundaberg Alcoholic Ginger Beer",
-            "alias": "",
-            "type": "ginger beer",
-            "alcohol_content": "4%",
-            "origin": "Australia",
-            "description": "Bundaberg's alcoholic ginger beer has strong, natural ginger spice and a refreshing sweetness."
-        },
-        {
-            "name": "Brookvale Union Ginger Beer",
-            "alias": "",
-            "type": "ginger beer",
-            "alcohol_content": "4%",
-            "origin": "Australia",
-            "description": "A sweet and spicy alcoholic ginger beer made with ginger root, offering a clean, refreshing finish."
-        },
-        {
-            "name": "BrewDog Jet Black Heart",
-            "alias": "",
-            "type": "stout",
-            "alcohol_content": "4.7%",
-            "origin": "Scotland",
-            "description": "A smooth and creamy oatmeal milk stout with notes of chocolate, coffee, and roasted malt."
-        },
-        {
-            "name": "Founders Porter",
-            "alias": "",
-            "type": "porter",
-            "alcohol_content": "6.5%",
-            "origin": "United States",
-            "description": "A rich and silky porter with strong chocolate and caramel notes balanced by roasted malt bitterness."
-        },
-        {
-            "name": "Lion Stout",
-            "alias": "",
-            "type": "stout",
-            "alcohol_content": "8.8%",
-            "origin": "Sri Lanka",
-            "description": "A bold tropical stout with dark fruit, chocolate, and coffee flavors and a warming finish."
-        },
-        {
-            "name": "Left Hand Milk Stout",
-            "alias": "",
-            "type": "stout",
-            "alcohol_content": "6%",
-            "origin": "United States",
-            "description": "A smooth, slightly sweet milk stout with creamy mouthfeel and notes of chocolate and roasted malt."
-        },
-        {
-            "name": "Bulmer's Pear Cider",
-            "alias": "Magners Pear Cider",
-            "type": "cider",
-            "alcohol_content": "4.5%",
-            "origin": "Ireland",
-            "description": "Magners Pear is a sweet and refreshing pear cider with a crisp, fruity taste and a smooth finish."
-        },
-        {
-            "name": "Somersby Apple Cider",
-            "alias": "",
-            "type": "cider",
-            "alcohol_content": "4.5%",
-            "origin": "Denmark",
-            "description": "Somersby Apple Cider is popular for its bright apple sweetness, light carbonation, and smooth, refreshing finish."
-        },
-        {
-            "name": "Monteith's Crushed Apple Cider",
-            "alias": "",
-            "type": "cider",
-            "alcohol_content": "4.5%",
-            "origin": "New Zealand",
-            "description": "A natural New Zealand cider made with local apples, offering a crisp, sweet apple flavor and a slightly dry finish."
-        },
-        {
-            "name": "Scrumpy Jack Cider",
-            "alias": "",
-            "type": "cider",
-            "alcohol_content": "6%",
-            "origin": "United Kingdom",
-            "description": "Scrumpy Jack is a strong, traditional cider with a bold apple flavor and a dry finish."
-        }
-    ]
+  "beers": [
+    {
+      "name": "Heineken",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Netherlands",
+      "description": "Heineken is a pale lager beer with a slightly bitter taste and a refreshing finish. It is one of the most popular beers worldwide.",
+      "region": "Europe"
+    },
+    {
+      "name": "Guinness",
+      "alias": "",
+      "type": "stout",
+      "alcohol_content": "4.2%",
+      "origin": "Ireland",
+      "description": "Guinness is a dark Irish stout known for its creamy texture and rich, roasted flavor with hints of coffee and chocolate.",
+      "region": "Europe"
+    },
+    {
+      "name": "Sapporo",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Japan",
+      "description": "Sapporo is a crisp and refreshing lager with a light malt sweetness and a clean finish, making it a popular choice for pairing with food.",
+      "region": "Asia"
+    },
+    {
+      "name": "Blue Moon",
+      "alias": "",
+      "type": "wheat beer",
+      "alcohol_content": "5.4%",
+      "origin": "United States",
+      "description": "Blue Moon is a Belgian-style wheat beer brewed with orange peel and coriander, giving it a citrusy aroma and a smooth, creamy mouthfeel.",
+      "region": "North America"
+    },
+    {
+      "name": "Corona Extra",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.6%",
+      "origin": "Mexico",
+      "description": "Corona Extra is a light and refreshing lager with a mild flavor profile, often enjoyed with a wedge of lime to enhance its citrus notes.",
+      "region": "North America"
+    },
+    {
+      "name": "Stella Artois",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5.2%",
+      "origin": "Belgium",
+      "description": "Stella Artois is a premium lager with a balanced taste, featuring a slightly bitter finish and a crisp, clean flavor.",
+      "region": "Europe"
+    },
+    {
+      "name": "Samuel Adams Boston Lager",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "United States",
+      "description": "Samuel Adams Boston Lager is a full-bodied beer with a rich amber color, offering a complex flavor profile with notes of caramel and a hoppy finish.",
+      "region": "North America"
+    },
+    {
+      "name": "Pilsner Urquell",
+      "alias": "",
+      "type": "pilsner",
+      "alcohol_content": "4.4%",
+      "origin": "Czech Republic",
+      "description": "Pilsner Urquell is the world's first pale lager, known for its crisp taste, balanced bitterness, and refreshing qualities.",
+      "region": "Europe"
+    },
+    {
+      "name": "Coors Light",
+      "alias": "",
+      "type": "light lager",
+      "alcohol_content": "4.2%",
+      "origin": "United States",
+      "description": "Coors Light is a light lager with a smooth, crisp taste and a refreshing finish, making it a popular choice for casual drinking.",
+      "region": "North America"
+    },
+    {
+      "name": "Dos Equis Lager Especial",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.2%",
+      "origin": "Mexico",
+      "description": "Dos Equis Lager Especial is a well-balanced lager with a light malt sweetness and a crisp, clean finish, often enjoyed with Mexican cuisine.",
+      "region": "North America"
+    },
+    {
+      "name": "Lagunitas IPA",
+      "alias": "",
+      "type": "pale ale",
+      "alcohol_content": "6.2%",
+      "origin": "United States",
+      "description": "Lagunitas IPA is a hoppy and bold India Pale Ale with citrus and pine notes, delivering a strong aroma and a slightly bitter finish.",
+      "region": "North America"
+    },
+    {
+      "name": "Hoegaarden",
+      "alias": "",
+      "type": "wheat beer",
+      "alcohol_content": "4.9%",
+      "origin": "Belgium",
+      "description": "Hoegaarden is a Belgian-style wheat beer known for its cloudy appearance and refreshing taste, with hints of citrus and coriander.",
+      "region": "Europe"
+    },
+    {
+      "name": "Yuengling Traditional Lager",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.5%",
+      "origin": "United States",
+      "description": "Yuengling Traditional Lager is a classic American lager with a medium body, offering a balanced flavor with a touch of caramel and a smooth finish.",
+      "region": "North America"
+    },
+    {
+      "name": "Modelo Especial",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.4%",
+      "origin": "Mexico",
+      "description": "Modelo Especial is a pilsner-style lager with a rich, full flavor and a crisp, refreshing finish, often paired with spicy foods.",
+      "region": "North America"
+    },
+    {
+      "name": "Anchor Steam Beer",
+      "alias": "",
+      "type": "steam beer",
+      "alcohol_content": "4.9%",
+      "origin": "United States",
+      "description": "Anchor Steam Beer is a unique American beer brewed using a special steam fermentation process, resulting in a rich, malty flavor with a hint of caramel.",
+      "region": "North America"
+    },
+    {
+      "name": "Carlsberg",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Denmark",
+      "description": "Carlsberg is a well-known Danish lager with a smooth and balanced taste, featuring a mild bitterness and a clean finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Tiger Beer",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Singapore",
+      "description": "Tiger Beer is a popular Asian lager known for its crisp and refreshing taste, with a light malt flavor and a slightly bitter finish.",
+      "region": "Asia"
+    },
+    {
+      "name": "Murphy's Irish Stout",
+      "alias": "",
+      "type": "stout",
+      "alcohol_content": "4%",
+      "origin": "Ireland",
+      "description": "Murphy's Irish Stout is a smooth and creamy stout with a rich, roasted flavor and subtle chocolate notes, offering a less bitter alternative to other stouts.",
+      "region": "Europe"
+    },
+    {
+      "name": "Rockshore Lager",
+      "alias": "",
+      "type": "light lager",
+      "alcohol_content": "4.3%",
+      "origin": "Ireland",
+      "description": "Rockshore Lager is a smooth and refreshing Irish lager with a light malt sweetness and a crisp finish, perfect for casual drinking.",
+      "region": "Europe"
+    },
+    {
+      "name": "Bulmer's Original Cider",
+      "alias": "Mager's Original Cider",
+      "type": "cider",
+      "alcohol_content": "4.5%",
+      "origin": "United Kingdom",
+      "description": "Bulmer's Original Cider is a classic English cider made from a blend of apples, offering a crisp and refreshing taste with a balanced sweetness and a dry finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Strongbow Gold Apple Cider",
+      "alias": "",
+      "type": "cider",
+      "alcohol_content": "5%",
+      "origin": "United Kingdom",
+      "description": "Strongbow Gold Apple Cider is a popular cider known for its crisp apple flavor and refreshing taste, with a balanced sweetness and a clean finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Orchard Thieves Apple Cider",
+      "alias": "Apple Bandit Cider",
+      "type": "cider",
+      "alcohol_content": "4.5%",
+      "origin": "Ireland",
+      "description": "Orchard Thieves Apple Cider is a vibrant and refreshing cider with a bold apple flavor, offering a perfect balance of sweetness and tartness.",
+      "region": "Europe"
+    },
+    {
+      "name": "Rekorderlig Strawberry-Lime Cider",
+      "alias": "",
+      "type": "cider",
+      "alcohol_content": "4%",
+      "origin": "Sweden",
+      "description": "Rekorderlig Strawberry-Lime Cider is a fruity and refreshing cider that combines the sweetness of strawberries with the zesty tang of lime, creating a delightful drinking experience.",
+      "region": "Europe"
+    },
+    {
+      "name": "Carling",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4%",
+      "origin": "United Kingdom",
+      "description": "Carling is a popular British lager known for its light and crisp taste, making it a favorite choice for casual drinking.",
+      "region": "Europe"
+    },
+    {
+      "name": "Foster's Lager",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Australia",
+      "description": "Foster's Lager is a well-known Australian beer with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish.",
+      "region": "Oceania"
+    },
+    {
+      "name": "Steinlager",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "New Zealand",
+      "description": "Steinlager is a premium New Zealand lager known for its clean and crisp taste, with a balanced malt flavor and a refreshing finish.",
+      "region": "Oceania"
+    },
+    {
+      "name": "Asahi Super Dry",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Japan",
+      "description": "Asahi Super Dry is a popular Japanese lager known for its crisp and dry taste, offering a refreshing drinking experience with a light malt flavor.",
+      "region": "Asia"
+    },
+    {
+      "name": "Tsingtao",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.7%",
+      "origin": "China",
+      "description": "Tsingtao is a well-known Chinese lager with a light and crisp taste, featuring a mild malt flavor and a refreshing finish.",
+      "region": "Asia"
+    },
+    {
+      "name": "Kingfisher",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.8%",
+      "origin": "India",
+      "description": "Kingfisher is a popular Indian lager known for its smooth and refreshing taste, with a light malt flavor and a crisp finish.",
+      "region": "Asia"
+    },
+    {
+      "name": "Brahma",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.3%",
+      "origin": "Brazil",
+      "description": "Brahma is a well-known Brazilian lager with a light and refreshing taste, featuring a mild malt flavor and a crisp finish.",
+      "region": "South America"
+    },
+    {
+      "name": "Mythos",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Greece",
+      "description": "Mythos is a popular Greek lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Efes Pilsener",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Turkey",
+      "description": "Efes Pilsener is a well-known Turkish lager with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish.",
+      "region": "Asia"
+    },
+    {
+      "name": "San Miguel",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Philippines",
+      "description": "San Miguel is a popular Filipino lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish.",
+      "region": "Asia"
+    },
+    {
+      "name": "Super Bock",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5.2%",
+      "origin": "Portugal",
+      "description": "Super Bock is a well-known Portuguese lager with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Rockshar Cider",
+      "alias": "",
+      "type": "cider",
+      "alcohol_content": "4.3%",
+      "origin": "Ireland",
+      "description": "Rockshar Cider is a smooth and refreshing Irish cider with a light apple sweetness and a crisp finish, perfect for casual drinking.",
+      "region": "Europe"
+    },
+    {
+      "name": "Birra Moretti",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.6%",
+      "origin": "Italy",
+      "description": "Birra Moretti is a traditional Italian lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Peroni Nastro Azzurro",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5.1%",
+      "origin": "Italy",
+      "description": "Peroni Nastro Azzurro is a premium Italian lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Budweiser",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "United States",
+      "description": "Budweiser is a classic American lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish.",
+      "region": "North America"
+    },
+    {
+      "name": "Beck's",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Germany",
+      "description": "Beck's is a well-known German lager with a crisp and refreshing taste, featuring a light malt flavor and a slightly bitter finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Kirin Ichiban",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Japan",
+      "description": "Kirin Ichiban is a premium Japanese lager known for its smooth and rich flavor, made using a unique first-press brewing method that enhances its malt sweetness.",
+      "region": "Asia"
+    },
+    {
+      "name": "Amstel",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Netherlands",
+      "description": "Amstel is a popular Dutch lager with a smooth and balanced taste, featuring a light malt flavor and a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Grolsch",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Netherlands",
+      "description": "Grolsch is a traditional Dutch lager known for its distinctive swing-top bottle and its rich, full-bodied flavor with a slightly bitter finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Tuborg",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.6%",
+      "origin": "Denmark",
+      "description": "Tuborg is a popular Danish lager with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Kozel",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.6%",
+      "origin": "Czech Republic",
+      "description": "Kozel is a well-known Czech lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Tyskie",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5.2%",
+      "origin": "Poland",
+      "description": "Tyskie is a popular Polish lager known for its smooth and refreshing taste, with a light malt flavor and a clean finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Żywiec",
+      "alias": "Zywiec",
+      "type": "lager",
+      "alcohol_content": "5.6%",
+      "origin": "Poland",
+      "description": "Żywiec is a traditional Polish lager with a rich and full-bodied flavor, featuring a balanced malt sweetness and a slightly bitter finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Lech",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Poland",
+      "description": "Lech is a popular Polish lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Smithwicks",
+      "alias": "",
+      "type": "red ale",
+      "alcohol_content": "4.5%",
+      "origin": "Ireland",
+      "description": "Smithwicks is a traditional Irish red ale with a smooth and malty flavor, featuring caramel notes and a slightly bitter finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Harp Lager",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Ireland",
+      "description": "Harp Lager is a crisp and refreshing Irish lager with a light malt flavor and a clean finish, perfect for casual drinking.",
+      "region": "Europe"
+    },
+    {
+      "name": "Beamish Irish Stout",
+      "alias": "",
+      "type": "stout",
+      "alcohol_content": "4.1%",
+      "origin": "Ireland",
+      "description": "Beamish Irish Stout is a traditional stout with a rich, roasted flavor and a creamy texture, offering notes of coffee and chocolate with a smooth finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Hop House 13 Lager",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Ireland",
+      "description": "Hop House 13 Lager is a vibrant and flavorful Irish lager brewed with a blend of hops, delivering a crisp taste with fruity and hoppy notes.",
+      "region": "Europe"
+    },
+    {
+      "name": "Bavaria",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Netherlands",
+      "description": "Bavaria is a well-known Dutch lager with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Chang Beer",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Thailand",
+      "description": "Chang Beer is a popular Thai lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish.",
+      "region": "Asia"
+    },
+    {
+      "name": "Singha",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Thailand",
+      "description": "Singha is a premium Thai lager with a rich and full-bodied flavor, featuring a balanced malt sweetness and a slightly bitter finish.",
+      "region": "Asia"
+    },
+    {
+      "name": "Lachouffe",
+      "alias": "",
+      "type": "blonde",
+      "alcohol_content": "8%",
+      "origin": "Belgium",
+      "description": "Lachouffe is a Belgian Strong Ale known for its complex flavor profile, featuring fruity and spicy notes with a warming finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Duvel",
+      "alias": "",
+      "type": "strong ale",
+      "alcohol_content": "8.5%",
+      "origin": "Belgium",
+      "description": "Duvel is a renowned Belgian strong ale with a distinctive fruity aroma and a dry, hoppy finish, making it a favorite among beer enthusiasts.",
+      "region": "Europe"
+    },
+    {
+      "name": "Paulaner Hefe-Weißbier",
+      "alias": "",
+      "type": "wheat beer",
+      "alcohol_content": "5.5%",
+      "origin": "Germany",
+      "description": "Paulaner Hefe-Weißbier is a traditional German wheat beer known for its cloudy appearance and refreshing taste, with hints of banana and clove.",
+      "region": "Europe"
+    },
+    {
+      "name": "Hofbräu Original",
+      "alias": "Hofbrau",
+      "type": "lager",
+      "alcohol_content": "5.1%",
+      "origin": "Germany",
+      "description": "Hofbräu Original is a classic German lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Leffe Blonde",
+      "alias": "",
+      "type": "blonde",
+      "alcohol_content": "6.6%",
+      "origin": "Belgium",
+      "description": "Leffe Blonde is a Belgian blonde ale known for its rich and fruity flavor, with notes of vanilla and clove, and a smooth finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Rebel Red Ale",
+      "alias": "",
+      "type": "red ale",
+      "alcohol_content": "4.3%",
+      "origin": "Ireland",
+      "description": "Rebel Red Ale is a smooth and malty Irish red ale with caramel notes and a slightly bitter finish, offering a balanced and enjoyable drinking experience.",
+      "region": "Europe"
+    },
+    {
+      "name": "Kopparberg Pear Cider",
+      "alias": "",
+      "type": "cider",
+      "alcohol_content": "4.5%",
+      "origin": "Sweden",
+      "description": "Kopparberg Pear Cider is a refreshing cider made from ripe pears, offering a sweet and fruity flavor with a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Kopparberg Mixed Fruit Cider",
+      "alias": "",
+      "type": "cider",
+      "alcohol_content": "4%",
+      "origin": "Sweden",
+      "description": "Kopparberg Mixed Fruit Cider is a vibrant cider that combines the flavors of various fruits, delivering a sweet and tangy taste with a refreshing finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Peja Lager",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.7%",
+      "origin": "Kosovo",
+      "description": "Peja Lager is a popular Kosovan lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Birra Tirana",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.8%",
+      "origin": "Albania",
+      "description": "Birra Tirana is a well-known Albanian lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Speight's Lager",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "4.5%",
+      "origin": "New Zealand",
+      "description": "Speight's Lager is a traditional New Zealand lager known for its smooth and refreshing taste, with a light malt flavor and a clean finish.",
+      "region": "Oceania"
+    },
+    {
+      "name": "Monteith's Original Ale",
+      "alias": "",
+      "type": "ale",
+      "alcohol_content": "5%",
+      "origin": "New Zealand",
+      "description": "Monteith's Original Ale is a well-known New Zealand ale with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish.",
+      "region": "Oceania"
+    },
+    {
+      "name": "Kazbegi Beer",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Georgia",
+      "description": "Kazbegi Beer is a popular Georgian lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Hollow's and Fentimans",
+      "alias": "",
+      "type": "ginger beer",
+      "alcohol_content": "4%",
+      "origin": "United Kingdom",
+      "description": "Hollow's and Fentimans Ginger Beer is a traditional ginger beer with a strong ginger flavor and a refreshing, spicy finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Crabbie's Original Alcoholic Ginger Beer",
+      "alias": "",
+      "type": "ginger beer",
+      "alcohol_content": "4%",
+      "origin": "United Kingdom",
+      "description": "Crabbie's Original Alcoholic Ginger Beer is a popular ginger beer known for its bold ginger taste and refreshing qualities, making it a favorite choice for those who enjoy a spicy kick.",
+      "region": "Europe"
+    },
+    {
+      "name": "Estrella Damm",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5.4%",
+      "origin": "Spain",
+      "description": "Estrella Damm is a well-known Spanish lager with a smooth and refreshing taste, featuring a light malt flavor and a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Madri",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5%",
+      "origin": "Spain",
+      "description": "Madri is a popular Spanish lager known for its crisp and refreshing taste, with a light malt flavor and a clean finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "San Miguel Especial",
+      "alias": "",
+      "type": "lager",
+      "alcohol_content": "5.4%",
+      "origin": "Spain",
+      "description": "San Miguel Especial is a premium Spanish lager with a smooth and balanced flavor, featuring a light malt sweetness and a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Strongbow Mixed Fruit Cider",
+      "alias": "",
+      "type": "cider",
+      "alcohol_content": "4%",
+      "origin": "United Kingdom",
+      "description": "Strongbow Mixed Fruit Cider is a refreshing cider that combines the flavors of various fruits, delivering a sweet and tangy taste with a crisp finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Sierra Nevada Pale Ale",
+      "alias": "",
+      "type": "pale ale",
+      "alcohol_content": "5.6%",
+      "origin": "United States",
+      "description": "A classic American pale ale known for its pine and citrus hops balanced against a smooth malt backbone.",
+      "region": "North America"
+    },
+    {
+      "name": "Weihenstephaner Hefeweissbier",
+      "alias": "",
+      "type": "wheat beer",
+      "alcohol_content": "5.4%",
+      "origin": "Germany",
+      "description": "A famous Bavarian wheat beer with notes of banana, clove, and soft malt sweetness.",
+      "region": "Europe"
+    },
+    {
+      "name": "Kilkenny Irish Cream Ale",
+      "alias": "",
+      "type": "cream ale",
+      "alcohol_content": "4.3%",
+      "origin": "Ireland",
+      "description": "A smooth, creamy Irish ale with caramel malt flavor and a soft finish, served on nitro.",
+      "region": "Europe"
+    },
+    {
+      "name": "Bundaberg Alcoholic Ginger Beer",
+      "alias": "",
+      "type": "ginger beer",
+      "alcohol_content": "4%",
+      "origin": "Australia",
+      "description": "Bundaberg's alcoholic ginger beer has strong, natural ginger spice and a refreshing sweetness.",
+      "region": "Oceania"
+    },
+    {
+      "name": "Brookvale Union Ginger Beer",
+      "alias": "",
+      "type": "ginger beer",
+      "alcohol_content": "4%",
+      "origin": "Australia",
+      "description": "A sweet and spicy alcoholic ginger beer made with ginger root, offering a clean, refreshing finish.",
+      "region": "Oceania"
+    },
+    {
+      "name": "BrewDog Jet Black Heart",
+      "alias": "",
+      "type": "stout",
+      "alcohol_content": "4.7%",
+      "origin": "Scotland",
+      "description": "A smooth and creamy oatmeal milk stout with notes of chocolate, coffee, and roasted malt.",
+      "region": "Europe"
+    },
+    {
+      "name": "Founders Porter",
+      "alias": "",
+      "type": "porter",
+      "alcohol_content": "6.5%",
+      "origin": "United States",
+      "description": "A rich and silky porter with strong chocolate and caramel notes balanced by roasted malt bitterness.",
+      "region": "North America"
+    },
+    {
+      "name": "Lion Stout",
+      "alias": "",
+      "type": "stout",
+      "alcohol_content": "8.8%",
+      "origin": "Sri Lanka",
+      "description": "A bold tropical stout with dark fruit, chocolate, and coffee flavors and a warming finish.",
+      "region": "Asia"
+    },
+    {
+      "name": "Left Hand Milk Stout",
+      "alias": "",
+      "type": "stout",
+      "alcohol_content": "6%",
+      "origin": "United States",
+      "description": "A smooth, slightly sweet milk stout with creamy mouthfeel and notes of chocolate and roasted malt.",
+      "region": "North America"
+    },
+    {
+      "name": "Bulmer's Pear Cider",
+      "alias": "Magners Pear Cider",
+      "type": "cider",
+      "alcohol_content": "4.5%",
+      "origin": "Ireland",
+      "description": "Magners Pear is a sweet and refreshing pear cider with a crisp, fruity taste and a smooth finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Somersby Apple Cider",
+      "alias": "",
+      "type": "cider",
+      "alcohol_content": "4.5%",
+      "origin": "Denmark",
+      "description": "Somersby Apple Cider is popular for its bright apple sweetness, light carbonation, and smooth, refreshing finish.",
+      "region": "Europe"
+    },
+    {
+      "name": "Monteith's Crushed Apple Cider",
+      "alias": "",
+      "type": "cider",
+      "alcohol_content": "4.5%",
+      "origin": "New Zealand",
+      "description": "A natural New Zealand cider made with local apples, offering a crisp, sweet apple flavor and a slightly dry finish.",
+      "region": "Oceania"
+    },
+    {
+      "name": "Scrumpy Jack Cider",
+      "alias": "",
+      "type": "cider",
+      "alcohol_content": "6%",
+      "origin": "United Kingdom",
+      "description": "Scrumpy Jack is a strong, traditional cider with a bold apple flavor and a dry finish.",
+      "region": "Europe"
+    }
+  ]
 }

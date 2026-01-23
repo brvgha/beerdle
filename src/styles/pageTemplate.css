@@ -1,0 +1,9 @@
+.page-root {
+    background-color: #bfbfbf;
+    min-height: 100vh;
+}
+
+.page-root h1 {
+    text-align: center;
+    margin-top: 2rem;
+}

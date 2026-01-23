@@ -1,0 +1,79 @@
+.about-root {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-logo-container {
+    display: block;
+    margin: 0 auto auto auto;
+    will-change: filter;
+    transition: filter 300ms;
+    background-color: #ffffff;
+    width: 60%;
+    max-width: 400px;
+    border-radius: 20px;
+}
+
+.about-logo-image {
+    width: 100%;
+}
+
+.about-button-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.about-header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-text-container {
+    margin-top: 1rem;
+    gap: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.play-button {
+    min-width: 100px !important;
+    background-color: #00c43b !important;
+    margin: 2rem;
+}
+
+.login-button {
+    min-width: 100px !important;
+    background-color: #0055c4 !important;
+    margin: 2rem;
+}
+
+.signup-button {
+    min-width: 100px !important;
+    background-color: #6500c4 !important;
+    margin: 2rem;
+}
+
+.bmc-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.bmc-button {
+    background-color: #ffffff !important;
+}
+
+.bmc-image {
+    width: 150px;
+    height: 50px;
+}

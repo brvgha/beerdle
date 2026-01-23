@@ -1,12 +1,13 @@
 {
     "beers": [
         {
-            "name": "Guinness",
+            "name": "Heineken",
             "alias": "",
-            "type": "stout",
-            "alcohol_content": "4.2%",
-            "origin": "Ireland",
-            "description": "Guinness is a dark Irish stout known for its creamy texture and rich, roasted flavor with hints of coffee and chocolate."
+            "type": "lager",
+            "alcohol_content": "5%",
+            "origin": "Netherlands",
+            "description": "Heineken is a pale lager beer with a slightly bitter taste and a refreshing finish. It is one of the most popular beers worldwide.",
+            "region": "Europe"
         }
     ]
 }

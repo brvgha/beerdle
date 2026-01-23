@@ -1,22 +1,21 @@
 import React, { useState, type MouseEvent } from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+  Menu,
+  MenuItem,
+  useMediaQuery,
+  useTheme,
+  Box,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
-const styles = {
-  title: {
-    flexGrow: 1,
-  },
-};
+import "../../styles/siteHeader.css";
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
@@ -29,10 +28,10 @@ const SiteHeader: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   const menuOptions = [
-    { label: "Home", path: "/" },
-    { label: "History", path: "/history" },
-    { label: "About", path: "/about" },
-    { label: "Logout", path: "/logout" }
+    { label: "Home", path: "/home" },
+    //{ label: "History", path: "/history" },
+    { label: "About", path: "/" },
+    // { label: "Logout", path: "/logout" }
   ];
 
   const handleMenuSelect = (pageURL: string) => {
@@ -45,14 +44,15 @@ const SiteHeader: React.FC = () => {
 
   return (
     <>
-      <AppBar position="fixed" elevation={0} color="primary">
+      <AppBar className="site-header" elevation={10}>
         <Toolbar>
-          <Typography variant="h4" sx={styles.title}>
-            Beerdle
+          <img className="header-logo" src="/logo.png" alt="Beerdle Logo" />
+          <Typography variant="h4" className="header-title">
           </Typography>
-          <Typography variant="h6" sx={styles.title}>
+          <Typography variant="h6" className="header-subtitle">
             The beer guessing game!
           </Typography>
+          <Box sx={{ flexGrow: 1 }} />
           {isMobile ? (
             <>
               <IconButton
@@ -94,6 +94,7 @@ const SiteHeader: React.FC = () => {
             <>
               {menuOptions.map((opt) => (
                 <Button
+                  className="nav-button"
                   key={opt.label}
                   color="inherit"
                   onClick={() => handleMenuSelect(opt.path)}
