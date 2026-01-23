@@ -143,7 +143,7 @@ describe('check exact details', () => {
 
     it('should return close if type is close', () => {
         const expectedType = 'Lager';
-        const actualType = 'Light Lagerq';
+        const actualType = 'Light Lager';
         const result = checkSameType(expectedType, actualType);
         expect(result).toBe('close');
     });
