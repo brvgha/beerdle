@@ -5,6 +5,10 @@ steps:
       - 'build'
       - '-t'
       - 'gcr.io/$PROJECT_ID/beerdle-frontend'
+      - '--build-arg'
+      - 'VITE_API_URL=$_VITE_API_URL'
+      - '--build-arg'
+      - 'VITE_API_KEY=$_VITE_API_KEY'
       - '.'
 
   # Push the container image to Container Registry
@@ -25,6 +29,10 @@ steps:
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
+
+substitutions:
+  _VITE_API_URL: 'http://localhost:8000' # Default value, override during submit
+  _VITE_API_KEY: ''                      # Default value, override during submit
 
 images:
   - 'gcr.io/$PROJECT_ID/beerdle-frontend'

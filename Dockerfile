@@ -1,14 +1,20 @@
 # Build stage
 FROM node:20-slim as build-stage
 
-
-
 WORKDIR /app
 
 # Copy package files and install dependencies
 COPY package*.json ./
 RUN npm install -g typescript
 RUN npm install
+
+# Pass build arguments for environment variables
+ARG VITE_API_URL
+ARG VITE_API_KEY
+
+# Set environment variables for the build process
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_API_KEY=$VITE_API_KEY
 
 # Copy source code and build
 COPY . .
