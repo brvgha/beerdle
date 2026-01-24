@@ -31,7 +31,7 @@ steps:
       - '--allow-unauthenticated'
 
 substitutions:
-  _VITE_API_URL: 'http://localhost:8000' # Default value, override during submit
+  _VITE_API_URL: 'https://beerdle-api-final-713774466210.europe-west1.run.app' # Default value, override during submit
   _VITE_API_KEY: ''                      # Default value, override during submit
 
 images:
