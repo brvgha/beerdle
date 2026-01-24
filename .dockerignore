@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+.gitignore
+*.md
+Dockerfile
+cloudbuild.yaml
+.env
+.env.*
+! .env.production
