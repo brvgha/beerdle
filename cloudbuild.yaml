@@ -1,4 +1,16 @@
 steps:
+  - name: 'bash'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        if [ -z "$VITE_API_KEY" ]; then
+          echo "VITE_API_KEY IS EMPTY IN CLOUD BUILD"
+        else
+          echo "VITE_API_KEY IS PRESENT IN CLOUD BUILD"
+        fi
+    secretEnv: ['VITE_API_KEY']
+
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
     args:
@@ -6,7 +18,7 @@ steps:
       - '-t'
       - 'gcr.io/$PROJECT_ID/beerdle-frontend'
       - '--build-arg'
-      - 'VITE_API_URL=$_VITE_API_URL'
+      - 'VITE_API_URL=$VITE_API_URL'
       - '--build-arg'
       - 'VITE_API_KEY=$$VITE_API_KEY'
       - '.'
