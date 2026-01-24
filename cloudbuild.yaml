@@ -8,8 +8,9 @@ steps:
       - '--build-arg'
       - 'VITE_API_URL=$_VITE_API_URL'
       - '--build-arg'
-      - 'VITE_API_KEY=$_VITE_API_KEY'
+      - 'VITE_API_KEY=$$VITE_API_KEY'
       - '.'
+    secretEnv: ['VITE_API_KEY']
 
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
@@ -30,12 +31,14 @@ steps:
       - 'managed'
       - '--allow-unauthenticated'
 
-# To deploy with the API key, use:
-# gcloud builds submit --substitution=_VITE_API_KEY="your-api-key-here"
-# Or store the key in Secret Manager and reference it
+# Retrieve API key from Secret Manager
+availableSecrets:
+  secretManager:
+  - versionName: projects/$PROJECT_ID/secrets/vite-api-key/versions/latest
+    env: 'VITE_API_KEY'
+
 substitutions:
   _VITE_API_URL: 'https://beerdle-api-final-713774466210.europe-west1.run.app'
-  _VITE_API_KEY: ''  # Override this value when submitting the build
 
 images:
   - 'gcr.io/$PROJECT_ID/beerdle-frontend'
