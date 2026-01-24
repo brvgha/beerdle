@@ -30,9 +30,12 @@ steps:
       - 'managed'
       - '--allow-unauthenticated'
 
+# To deploy with the API key, use:
+# gcloud builds submit --substitution=_VITE_API_KEY="your-api-key-here"
+# Or store the key in Secret Manager and reference it
 substitutions:
-  _VITE_API_URL: 'https://beerdle-api-final-713774466210.europe-west1.run.app' # Default value, override during submit
-  _VITE_API_KEY: ''                      # Default value, override during submit
+  _VITE_API_URL: 'https://beerdle-api-final-713774466210.europe-west1.run.app'
+  _VITE_API_KEY: ''  # Override this value when submitting the build
 
 images:
   - 'gcr.io/$PROJECT_ID/beerdle-frontend'
