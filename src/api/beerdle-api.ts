@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_KEY || 'https://beerdle-api-final-713774466210.europe-west1.run.app';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://beerdle-api-final-713774466210.europe-west1.run.app';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const getHeaders = () => {
