@@ -1,11 +1,11 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://beerdle-api-final-713774466210.europe-west1.run.app';
-const API_KEY = import.meta.env.VITE_API_KEY;
+// const API_KEY = import.meta.env.VITE_API_KEY;
 
 const getHeaders = () => {
     const sessionToken = localStorage.getItem('beerdle_session');
     return {
         'Content-Type': 'application/json',
-        'X-API-Key': API_KEY || '',
+        //'X-API-Key': API_KEY || '',
         'X-Session-Token': sessionToken || '',
     };
 };
